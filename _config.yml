@@ -1,6 +1,7 @@
-name: "OpenCart Documentation"
-description: "Documentation for the OpenCart script from www.opencart.com"
-url: "http://www.opencart.com"
-baseurl: "http://opencart.github.io/"
-markdown: rdiscount
+name: Документация по OpenCart
+description: Документация для скрипта OpenCart от opencart.com
+url: https://opencart.name
+baseurl: https://opencart.github.io/
+repository: https://github.com/ruOpenCart/ruopencart.github.io
+markdown: kramdown
 permalink: pretty
