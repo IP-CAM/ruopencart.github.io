@@ -1,23 +1,23 @@
 ---
 layout: ru-ru/default
-title: "SEO keywords - OpenCart Documentation"
+title: "SEO ключевые слова - Документация OpenCart"
 permalink: ru-ru/administration/seo/
 ---
-<h1>SEO keywords</h1>
-<h2>SEO keywords</h2>
-<p>OpenCart allows the use of search engine optimized URLs for product, category, manufacturer and information pages. SEO keywords are defined per product, category, manufacturer and information page, stored in a database table (url_alias), looked up at each page request, and translated into an internal URL.</p>
-<p>In order to use SEO keywords, they must be enabled in the store settings page, <a href="en-gb/system/setting/server/">server tab</a> in the <a href="en-gb/administration/">admin interface</a>.</p>
+<h1>Ключевые слова SEO</h1>
+<h2>Ключевые слова SEO</h2>
+<p>OpenCart позволяет использовать оптимизированные для поисковых систем URL-адреса для товаров, категорий, производителей и информационных страниц. Ключевые слова SEO определяются для каждого продукта, категории, производителя и информационной страницы, хранятся в таблице базы данных (url_alias), просматриваются при каждом запросе страницы и переводятся во внутренний URL-адрес.</p>
+<p>Чтобы использовать ключевые слова SEO, их необходимо включить на странице настроек магазина, <a href="ru-ru/system/setting/server/">вкладка Сервер</a> в <a href="ru-ru/administration/">Интерфейс администратора</a>.</p>
 
 <p class="text-center"><img src="image/administration/admin-enable-seo-url.png" alt="System Setting - SEO URL" class="img-responsive" /></p>
 
-<p>A correctly formatted .htaccess file must be present in the root of the OpenCart installation (beside the admin and catalog folders). The contents of the .htaccess file are shown below:
-  <a role="button" class="btn btn-default btn-sm" data-toggle="collapse" href="#collapse-htaccess" aria-expanded="false" aria-controls="collapse-htaccess">Show / Hide</a>
+<p>Правильно отформатированный файл .htaccess должен присутствовать в корневом каталоге установки OpenCart (кроме папок admin и каталога). Содержимое файла .htaccess показано ниже:
+  <a role="button" class="btn btn-default btn-sm" data-toggle="collapse" href="#collapse-htaccess" aria-expanded="false" aria-controls="collapse-htaccess">Показать / Скрыть</a>
 </p>
 
 <div class="collapse in" id="collapse-htaccess">
   <div class="well">
     <code>
-      # 1.To use URL Alias you need to be running apache with mod_rewrite enabled.<br />
+      # 1. To use URL Alias you need to be running apache with mod_rewrite enabled.<br />
       # 2. In your opencart directory rename htaccess.txt to .htaccess.<br />
       # For any support issues please visit: http://www.opencart.com<br />
       Options +FollowSymlinks<br />
@@ -59,13 +59,13 @@ permalink: ru-ru/administration/seo/
   </div>
 </div>
 
-<p>The .htaccess.txt file should be present in your store&#39;s root folder. If not, copy and paste the text above into a text editor and save it as &quot;.htaccess&quot;. If the .htaccess.txt file is present, please change its name to &quot;.htaccess&quot;. With the .htaccess file changed, you should be able to add unique SEO keywords to individual products, manufacturers, categories, and information pages.</p>
+<p>Файл .htaccess.txt должен присутствовать в корневой папке вашего магазина. Если нет, скопируйте и вставьте текст выше в текстовый редактор и сохраните его как &quot;.htaccess&quot;. Если файл .htaccess.txt присутствует, измените его имя на &quot;.htaccess&quot;. После изменения файла .htaccess Вы сможете добавлять уникальные ключевые слова SEO для отдельных продуктов, производителей, категорий и информационных страниц.</p>
 
-<p>The SEO keywords you add will be displayed in the url of the page, so they must be unique for each product, product category, etc. Let&#39;s see what happens when we add the SEO keyword, &quot;nikon-camera&quot;, to our Nikon D300 product under the <a href="en-gb/administration/seo/">Data </a>tab:</p>
+<p>Добавленные вами ключевые слова SEO будут отображаться в URL страницы, поэтому они должны быть уникальными для каждого продукта, категории продукта и т. Д. Давайте посмотрим, что произойдет, когда мы добавим ключевое слово SEO, &quot;nikon-camera&quot;, к нашему продукту Nikon D300 под вкладкой <a href="ru-ru/administration/seo/">Данные</a>:</p>
 
 <p class="text-center"><img src="image/administration/admin-product-seo-url-example.png" alt="Admin Product - SEO Example" class="img-responsive" /></p>
 
-<p>If our store is located at &quot;www.mystore.com&quot;, the new URL of the Nikon D300 product page will be located at &quot;www.mystore.com/nikon-d300&quot;. Overall, creating SEO keywords will clean up your store page&#39;s URL and optimize your page for search engines.</p>
+<p>Если наш магазин находится по адресу &quot;www.mystore.com&quot;, новый URL-адрес страницы продукта Nikon D300 будет находиться по адресу &quot;www.mystore.com/nikon-d300&quot;. В целом, создание ключевых слов SEO очистит URL страницы Вашего магазина и оптимизирует Вашу страницу для поисковых систем.</p>
 
 <div class="well">
   <code>www.mystore.com/nikon-d300</code>
