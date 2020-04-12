@@ -1,36 +1,36 @@
 ---
 layout: ru-ru/default
-title: "Admin Interface - OpenCart Documentation"
+title: "Интерфейс Администратора - Документация OpenCart"
 permalink: ru-ru/administration/
 ---
-<h1>Admin Interface</h1>
-<h2>Connecting the OpenCart administration</h2>
-<p>OpenCart&#39;s administration side of the store is where you can modify features, upload images, add products, keep track of customers, manage payments, and much more. Customization in the admin affects how the customer will interact with a store: by modifying the look, structure, and content of the store front.</p>
-<h2>Accessing the admin panel</h2>
-<p>To access the admin panel, type in location of the store into the web browser followed by &quot;/admin&quot;. For example, if your store is located at &quot;www.chocolatechip.com&quot;, your admin panel is located at &quot;www.chocolatechip.com/admin&quot;. Even if the store is located in a sub-folder or on a sub-domain of their site, adding &quot;/admin&quot; to the end of the store&#39;s path will lead you to the administration side.</p>
-<p>If the name of the folder is changed by you during installation, the location of the admin panel is changed to that new name. For example, if the name of the admin folder is changed to admin1, the new location of the admin panel is at &quot;www.chocolatchip.com/admin1&quot;.</p>
-<div class="alert alert-success" role="alert"><i class="fa  fa-check-circle"></i> Changing the name of the admin folder to another name is important for improving an online shop&#39;s security. The config.php file needs to be edited to indicate the correct file path and location.</div>
-<p>A username and password is created in <a href="en-gb/installation/">Step 3 of the auto-installer</a> during installation. This information can now be used to fill in the administrator login details.</p>
+<h1>Интерфейс администратора</h1>
+<h2>Подключение к Администрированию OpenCart</h2>
+<p>Административная сторона магазина OpenCart - это то, где Вы можете изменять функции, загружать изображения, добавлять продукты, отслеживать клиентов, управлять платежами и многое другое. Настройка в админке влияет на то, как покупатель будет взаимодействовать с магазином: изменяя внешний вид, структуру и содержание витрины магазина.</p>
+<h2>Доступ к панели администрирования</h2>
+<p>Для доступа к панели администратора, введите в строке браузера адрес Вашего сайта, а затем &quot;/admin&quot;. Например, если адрес Вашего магазина &quot;www.chocolatechip.com&quot;, Ваша админ панель находиться по адресу &quot;www.chocolatechip.com/admin&quot;. Даже если магазин находится в подпапке или субдомене их сайта, добавление &quot;/admin&quot; в конец пути к магазину приведет вас к административной стороне.</p>
+<p>Если во время установки Вы изменили имя папки, расположение панели администратора изменится на это новое имя. Например, если имя папки администратора изменено на admin1, новое местоположение панели администратора находится по адресу &quot;www.chocolatchip.com/admin1&quot;.</p>
+<div class="alert alert-success" role="alert"><i class="fa fa-check-circle"></i> Изменение имени папки администратора на другое имя важно для повышения безопасности онлайн-магазина. Файл config.php необходимо отредактировать, чтобы указать правильный путь и местоположение файла.</div>
+<p>Имя пользователя и пароль созданы в <a href="ru-ru/installation/">Шаг 3 автоинсталлятора</a> во время установки. Эта информация теперь может быть использована для заполнения регистрационных данных администратора.</p>
 <p class="text-center"><img src="image/admin-interface-login.png" alt="admin interface login" class="img-thumbnail" /></p>
-<p>After filling in the correct username and password, pressing the &quot;Login&quot; button will direct you to the OpenCart dashboard. When you first login to your shop, the dashboard will be blank (as seen below), because there isn&#39;t any statistical data to be analyzed yet.</p>
+<p>После ввода правильного имени пользователя и пароля, нажав кнопку &quot;Входа&quot;, Вы попадете на панель инструментов OpenCart. Когда Вы впервые войдете в свой магазин, панель будет пустой (как показано ниже), потому что еще нет статистических данных для анализа.</p>
 <p class="text-center"><img src="image/admin-interface-dashboard.png" alt="admin interface dashboard" class="img-thumbnail" /></p>
-<h2>Entering the administration through the Dashboard</h2>
-<p>The dashboard is the first thing you will see when entering OpenCart&#39;s admin. The main function of the dashboard is to give the shop owner an overview of how the shop is performing. There are 3 sections of the dashboard that can help you understand the statistical data collected by your store:</p>
+<h2>Вход в администрирование через панель инструментов</h2>
+<p>Панель управления - это первое, что Вы увидите при входе в администрирование OpenCart. Основная функция панели инструментов - дать владельцу магазина обзор его работы. Есть 3 раздела панели инструментов, которые могут помочь Вам понять статистические данные, собранные Вашим магазином:</p>
 <ul>
-  <li><strong>Overview:</strong>
-    <p>There are four chart showing the status of your website. They are Total Orders, Total sales, Total Customers and People Online which help you to easier to know the analytics.</p>
+  <li><strong>Обзор:</strong>
+    <p>Есть четыре графика, показывающие статус Вашего сайта. Это «Всего заказов», «Всего продаж», «Всего клиентов» и «Пользователи онлайн», которые помогут Вам лучше понять аналитику.</p>
   </li>
-  <li><strong>World Map:</strong>
-    <p>A world map to show where the orders from your website were coming from.</p>
+  <li><strong>Карта мира:</strong>
+    <p>Карта мира, показывающая, откуда поступают заказы с Вашего сайта.</p>
   </li>
-    <li><strong>Sales Analytics:</strong>
-    <p>A graph is provided to track the chronological progress of the store relative to the amount of orders and customers over time. The x value is time; which can be hours, days, or months depending on the range selected. The y value displays the number of total orders(yellow) and total customers(blue).</p>
+    <li><strong>Аналитика продаж:</strong>
+    <p>График предоставлен для отслеживания хронологического прогресса магазина относительно количества заказов и покупателей с течением времени. Значение x - это время; это могут быть часы, дни или месяцы в зависимости от выбранного диапазона. Значение y отображает общее количество заказов (желтый) и общее количество клиентов (синий).</p>
   </li>
-    <li><strong>Recent Activity:</strong>
-    <p>A section to check the recent activity from any customer from your store such as login, creating account or placing new orders.</p>
+    <li><strong>Недавняя активность:</strong>
+    <p>Раздел для проверки недавних действий любого покупателя из Вашего магазина, таких как вход в систему, создание учетной записи или размещение новых заказов.</p>
   </li>
-  <li><strong>Latest Orders:</strong>
-    <p>A list that displays the last orders and their details (&quot;Order ID&quot;, &quot;Customer&quot;, &quot;Status&quot;, &quot;Date Added&quot;, &quot;Total&quot;, and &quot;Action&quot;)</p>
+  <li><strong>Последние заказы:</strong>
+    <p>Список, который отображает последние заказы и их детали (&quot;Номер заказа&quot;, &quot;Клиент&quot;, &quot;Статус&quot;, &quot;Дата добавления&quot;, &quot;Всего&quot;, и &quot;Действие&quot;)</p>
   </li>
 </ul>
-<p>Above the dashboard in the top menu is the administration navigation. You can navigate between the &quot;Catalog&quot;, &quot;Extensions&quot;, &quot;Sales&quot;, &quot;System&quot;, &quot;Reports&quot;, and &quot;Help&quot;. These sections will be explained in further detail in the following sections of the User Guide.</p>
+<p>Над приборной панелью в верхнем меню находится администрация навигации. Вы можете перемещаться между &quot;Каталог&quot;, &quot;Расширения&quot;, &quot;Продажи&quot;, &quot;Система&quot;, &quot;Отчеты&quot;, и &quot;Помощь&quot;. Эти разделы будут объяснены более подробно в следующих разделах Руководства пользователя.</p>
