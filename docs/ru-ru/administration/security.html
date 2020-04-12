@@ -1,24 +1,25 @@
 ---
 layout: ru-ru/default
-title: "Security Practices - OpenCart Documentation"
+title: "Практики безопасности - Документация OpenCart"
 permalink: ru-ru/administration/security/
 ---
-<h1>Basic Security Practices</h1>
-<p>OpenCart is not responsible for the securing your website, therefore it is up you to ensure your server&#39;s level of safety. The following suggestions aim to improve your OpenCart store&#39;s security.</p>
-<p>These additional steps can be taken immediately after OpenCart is installed to your server; or whenever you store becomes active. See <a href="en-gb/installation/">Installation</a> for more information on how to install your OpenCart store.</p>
+<h1>Основные правила безопасности</h1>
+<p>OpenCart не несет ответственности за безопасность Вашего сайта, поэтому Вы должны обеспечить уровень безопасности Вашего сервера. Следующие предложения направлены на повышение безопасности Вашего магазина OpenCart.</p>
+<p>Эти дополнительные шаги могут быть предприняты сразу после установки OpenCart на Ваш сервер; или всякий раз, когда Вы храните становится активным. Смотрите <a href="ru-ru/installation/">Установка</a> для получения дополнительной информации о том, как установить Ваш магазин OpenCart.</p>
 <hr/>
-<h2>Delete the install folder</h2>
-<p>Deleting the install folder is advised by OpenCart immediately after installation. OpenCart will warn you in the administration if the install folder is not deleted.</p>
+<h2>Удалить папку установки</h2>
+<p>Удаление установочной папки рекомендуется OpenCart сразу после установки. OpenCart предупредит вас в панели администрирования, если
+папка установки не удалена.</p>
 <hr/>
-<h2>Directory protection</h2>
-<h3>Admin folder</h3>
-<p>The admin directory is where you have access to your store&#39;s administration. People with access to your store administration will have access your editing your products, customer information, store settings, and more valuable information. Therefore, it is very important that the admin login be difficult to find and access.</p>
-<h4>Rename admin</h4>
-<p>Renaming the admin directory to something unrelated to the the admin is necessary to prevent unwanted eyes from discovering it&#39;s location. You can access your admin login through entering your store&#39;s location, then the path to the admin. For example, if the admin folder was changed to &quot;cookiemonster&quot;, the admin login would be at &quot;www.yourstore.com/cookiemonster&quot;. You will also need to update the admin/config.php file (or, in the example, the cookiemonster/config.php file), replacing instances of "admin" with the new name, e.g., "cookiemonster". Note that doing this may make life more difficult down the line, such as if you decide to install vQmod.</p>
+<h2>Защита каталогов</h2>
+<h3>Папка администратора</h3>
+<p>Каталог администратора - это место, где у Вас есть доступ к администрированию Вашего магазина. Люди, имеющие доступ к администрации Вашего магазина, получат доступ к редактированию ваших продуктов, информации о клиентах, настройкам магазина и более ценной информации. Поэтому очень важно, чтобы администратору было сложно найти логин и получить к нему доступ.</p>
+<h4>Переименовать admin</h4>
+<p>Переименование каталога администратора в нечто, не связанное с администратором, необходимо для предотвращения обнаружения его нежелательными глазами. Вы можете получить доступ к своей учетной записи администратора, введя местоположение вашего магазина, а затем путь к администратору. Например, если папка администратора была изменена на &quot;cookiemonster&quot;, вход администратора будет на &quot;www.yourstore.com/cookiemonster&quot;. Вам также необходимо обновить файл admin/config.php (или, в примере, файл cookiemonster/config.php), заменив экземпляры «admin» новым именем, например, «cookiemonster». Обратите внимание, что это может осложнить жизнь, например, если Вы решите установить vQmod.</p>
 <h4>.htaccess &amp; .htpasswd</h4>
-<p>A .htaccess and .htpasswd file in the admin folder will prevent hackers from accessing your store, even if they discover the admin login location. Using .htaccess, you can deny all IP addresses from viewing your store, except the admin&#39;s IP address. A .htpasswd in the admin folder will require an additional password for the allowed administrator to access this directory.</p>
-<h3>Catalog</h3>
-<p>The catalog can be protected with the traditional .htaccess file. Using file match can be useful for protecting important file types for your store, such as .php and .txt, rather than all of them. The following code can be used for .htaccess in your catalog folder:</p>
+<p>Файлы .htaccess и .htpasswd в папке администратора не позволят хакерам получить доступ к Вашему магазину, даже если они обнаружат местоположение входа администратора. Используя .htaccess, Вы можете запретить всем IP-адресам просматривать Ваш магазин, кроме IP-адреса администратора. .Htpasswd в папке администратора потребует дополнительный пароль для доступа разрешенного администратора к этому каталогу.</p>
+<h3>Каталог</h3>
+<p>Каталог может быть защищен традиционным файлом .htaccess. Использование сопоставления файлов может быть полезно для защиты важных типов файлов для Вашего магазина, таких как .php и .txt, а не всех из них. Следующий код можно использовать для .htaccess в папке Вашего каталога:</p>
 <div class="well">
   <code>&lt;FilesMatch &quot;\.(php|twig|txt)$&quot;&gt;<br />
     Order Deny,Allow<br />
@@ -26,11 +27,11 @@ permalink: ru-ru/administration/security/
     Allow from &quot;<strong>your ip address</strong>&quot;<br />
     &lt;/FilesMatch&gt;</code>
 </div>
-<p>This will deny access to all .twig, .php, and .txt files.</p>
-<h3>System folder</h3>
-<p>The system folder contains two files that need to be protected: logs/error.txt and start_up.php. The logs/error.txt can be renamed if necessary.</p>
+<p>Это запретит доступ ко всем файлам .twig, .php и .txt.</p>
+<h3>Системная папка</h3>
+<p>Системная папка содержит два файла, которые необходимо защитить: logs/error.txt и start_up.php. При необходимости файл logs/error.txt можно переименовать.</p>
 <h4>.Htaccess</h4>
-<p>The .htaccess will work to protect these files and the subfolders of System from being accessed by anyone except the designated administrator. To do so, insert the code below into your .htaccess:</p>
+<p>.Htaccess будет защищать эти файлы и вложенные папки системы от доступа кого-либо, кроме назначенного администратора. Для этого вставьте следующий код в Ваш .htaccess:</p>
 <div class="well">
   <code>&lt;Files *.*&gt;<br />
     Order Deny,Allow<br />
@@ -39,8 +40,8 @@ permalink: ru-ru/administration/security/
     &lt;/Files&gt;</code>
 </div>
 <hr/>
-<h2>File permissions</h2>
-<p>The following files need to be set to 644 or 444 to prevent anyone else from writing to them:</p>
+<h2>Права на файлы</h2>
+<p>Следующие файлы должны быть установлены на 644 или 444, чтобы никто другой не мог писать в них:</p>
 <ul>
   <li>config.php</li>
   <li>index.php</li>
