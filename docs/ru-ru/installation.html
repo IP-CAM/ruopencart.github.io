@@ -1,96 +1,101 @@
 ---
 layout: ru-ru/default
-title: "Installation - OpenCart documentation"
+title: "Установка - Документация OpenCart"
 permalink: ru-ru/installation/
 ---
-<h1>Installation</h1>
-<h2>Installing OpenCart</h2>
-<p>This guide will walk you through how to successfully install and uninstall OpenCart.</p>
-<h3>Video Tutorial</h3>
+<h1>Установка</h1>
+<h2>Установка OpenCart</h2>
+<p>В этом руководстве Вы узнаете, как успешно установить и удалить OpenCart.</p>
+<h3>Видеоурок</h3>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/nA6fST8uMXw" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-<h2>Downloading and unzipping OpenCart archive</h2>
+<h2>Загрузка и распаковка архива OpenCart</h2>
 
-<p>The latest version of OpenCart (v.3.0.2.0) can be downloaded from the <a href="https://www.opencart.com/index.php?route=cms/download">OpenCart website</a> (recommended for end user) or directly from <a href="https://github.com/opencart/opencart" target="_blank">Github</a> (recommended for web developer). The download page also offers access to previous versions of OpenCart. Under the Downloads column, locate 3.0.2.0 and press the "Download Now" link directly across from it under the Action column. This will download the compressed archive of that version of OpenCart in a zip file. For OpenCart version 3.0.2.0, a file named "3.0.2.0-compiled.zip" will be downloaded.</p>
-<p class="text-center"><img src="image/opencart-site-download.png" alt="OpenCart Official Site - Download" class="img-thumbnail" /></p>
+<p>Последнюю версию OpenCart (v.3.0.3.2) можно загрузить с <a href="https://www.opencart.com/index.php?route=cms/download" target="_blank">Сайт OpenCart</a> (рекомендуется для конечного пользователя) или напрямую от <a href="https://github.com/opencart/opencart" target="_blank">Github</a> (рекомендуется для веб-разработчика). Страница загрузки также предлагает доступ к предыдущим версиям OpenCart. В столбце «Загрузки» найдите 3.0.3.2 и нажмите ссылку «Загрузить сейчас» прямо напротив нее в столбце «Действие». Это загрузит сжатый архив этой версии OpenCart в
+zip-файл. Для OpenCart версии 3.0.3.2 будет загружен файл с именем «3.0.3.2-compiled.zip»..</p>
+<p class="text-center"><img src="image/opencart-site-download.png" alt="Официальный сайт OpenCart - Загрузки" class="img-thumbnail" /></p>
 
-<div class="alert alert-success" role="alert"><i class="far fa-check-circle"></i> If you don&#39;t have a program on your computer that can extract files from a zip file, <a href="http://www.win-rar.com/download.html?&amp;L=0">WinRar</a> can be downloaded for free. Unzipping the zip file will uncompress the OpenCart archive so the files can be accessed by a web server.</div>
-<p>When opening the zip file, the following files will be visible:</p>
+<div class="alert alert-success" role="alert"><i class="far fa-check-circle"></i> Если на Вашем компьютере нет программы, которая могла бы извлекать файлы из zip-файла, <a href="http://www.win-rar.com/download.html?&amp;L=0">WinRar</a> можно скачать бесплатно. Распаковка zip-файла приведет к распаковке архива OpenCart, и веб-сервер сможет получить к ним доступ.</div>
+<p>При открытии zip-файла будут видны следующие файлы:</p>
 <ul>
-  <li>&quot;upload&quot; folder</li>
-  <li>&quot;license.txt&quot; file</li>
-  <li>&quot;readme.txt&quot; file</li>
+  <li>&quot;upload&quot; папка</li>
+  <li>&quot;license.txt&quot; файл</li>
+  <li>&quot;readme.txt&quot; файл</li>
 </ul>
-<p>The &quot;upload&quot; folder contains all the files needed to upload OpenCart to a web server. The &quot;license.txt&quot; file contains the license agreement regarding the use of OpenCart on your site. The &quot;readme.text&quot; file provides links to the current install and upgrade instructions on the OpenCart website. When you are ready, you can extract the files from the zip file to a location of your choice on your computer.</p>
-<h2>Uploading OpenCart</h2>
-<p>At this step you should have a web server established and the OpenCart archive extracted. We will now use File Transfer Protocol (FTP) client to upload these uncompressed files to a web server.</p>
-<h3>Installing and configuring the FTP client</h3>
-<p>We recommend using Filezilla as your FTP client. Filezilla is a free FTP client that will transfer the OpenCart files to any web server specified. The FileZilla client (not the server) can be downloaded from <a href="http://filezilla-project.org/">http://filezilla-project.org/</a> and installed onto a computer.</p>
-<p>When you open Filezilla you should see your computer&#39;s file directory on the left side. The next step is to locate where you saved the uncompressed OpenCart archive and click on the &quot;upload&quot; folder, and the files should appear below it. The directory needs to be left open as we continue. The right hand side is blank at the moment because the target website hasn&#39;t been connected to. When connected it will display the file directory of the web server.</p>
+<p>Папка &quot;upload&quot; содержит все файлы, необходимые для загрузки OpenCart на веб-сервер. Файл &quot;license.txt&quot; содержит лицензионное соглашение об использовании OpenCart на Вашем сайте. Файл &quot;readme.text&quot; содержит ссылки на текущие инструкции по установке и обновлению на веб-сайте OpenCart. Когда Вы будете готовы, Вы можете извлечь файлы из zip-файла в любое место на Вашем компьютере.</p>
+<h2>Загрузка OpenCart</h2>
+<p>На этом этапе у Вас должен быть установлен веб-сервер и извлечен архив OpenCart. Теперь мы будем использовать FTP-клиент
+для загрузки этих несжатых файлов на веб-сервер.</p>
+<h3>Установка и настройка FTP-клиента</h3>
+<p>Мы рекомендуем использовать Filezilla в качестве вашего FTP-клиента. Filezilla - это бесплатный FTP-клиент, который будет передавать файлы OpenCart на любой указанный веб-сервер. Клиент FileZilla (не сервер) можно загрузить с <a href="http://filezilla-project.org/">http://filezilla-project.org/</a> и установить на компьютер.</p>
+<p>Когда вы откроете Filezilla, вы увидите папку с файлами на вашем компьютере с левой стороны. Следующим шагом является
+поиск места, в котором вы сохранили несжатый архив OpenCart, и щелкните папку &quot;upload&quot;, и файлы должны появиться под ней. Каталог нужно оставить открытым, так как мы продолжаем. На данный момент правая сторона пуста, поскольку целевой сайт не был подключен. При подключении будет отображаться каталог файлов веб-сервера.</p>
 <p class="text-center"><img src="image/filezilla-disconnect.png" alt="filezilla disconnect" class="img-thumbnail" /></p>
-<p>Before we continue, we need to make sure that you have the following information about your website:</p>
+<p>Прежде чем продолжить, мы должны убедиться, что у Вас есть следующая информация о Вашем сайте:</p>
 <ul>
-  <li>the host name</li>
-  <li>username</li>
-  <li>password</li>
+  <li>имя хоста</li>
+  <li>имя пользователя</li>
+  <li>пароль</li>
 </ul>
-<p>This information can be obtained by contacting your hosting provider.</p>
-<h3>Connecting to the Site Manager</h3>
-<p>Under the &ldquo;File&rdquo; menu, &ldquo;Site Manager&rdquo; should be opened in Filezilla. A window will pop up with the General tab open. You should fill in the information gathered above regarding hosting information, and press &ldquo;Connect&rdquo;. The right &ldquo;Remote Site&rdquo; side will now display the file directory of your website.</p>
+<p>Эту информацию можно получить, связавшись с Вашим хостинг-провайдером.</p>
+<h3>Подключение к менеджеру сайта</h3>
+<p>В меню &ldquo;Файл&rdquo;, &ldquo;Менеджер сайтов&rdquo; должен быть открыт в Filezilla. Появится окно с открытой главной вкладкой. Вы должны заполнить собранную выше информацию о хостинге и нажать &ldquo;Соединиться&rdquo;. Правая сторона &ldquo;Удаленный сайт&rdquo; теперь будет отображать каталог файлов Вашего сайта.</p>
 <p class="text-center"><img src="image/filezilla%20site%20manager.png" alt="filezilla site manager" class="img-thumbnail" /></p>
-<h3>Uploading OpenCart&#39;s files</h3>
-<p>If you haven&#39;t already located the OpenCart upload folder on the left side, you need to do so now and keep it open. In the Remote Site directory (right side), you need to open the folder that the OpenCart shop will be located in. The location of shop varies based on whether the you want the shop to be seen on the main page, a sub-folder, a subdomain, etc. If you want to make OpenCart the main page, you would need to upload files to the root folder of their website.</p>
-<div class="alert alert-info" role="alert"> <i class="fa fa-info-circle"></i> Be aware that some hosting services require public files to be upload to a public directory, such as public_html, if they are to be visible on the website. You should check with your hosting provider to see where you can upload public files. </div>
-<p>Once the location of the OpenCart shop has been determined, all the content within the &ldquo;upload&rdquo; folder on the computer&#39;s (left) side of Filezilla must be selected, right-clicked, and uploaded. Uploading all the files might take a few minutes on the FTP client.</p>
-<div class="alert alert-danger" role="alert"><i class="fa fa-exclamation-circle"></i> If you want the shop to be on the main page, for example www.shopnow.com, you must upload the contents of the &ldquo;upload&rdquo; folder, but not the &ldquo;upload&rdquo; folder itself. Including the &ldquo;upload&rdquo; folder will create a sub-folder, making the shop available only on www.shopnow.com/upload.</div>
-<p>After Filezilla finishes uploading the files to the location specified, you should see the same files on both the left side(computer) and on the right side (the website); as seen in the screenshot below:</p>
+<h3>Загрузка файлов OpenCart</h3>
+<p>Если Вы еще не нашли папку загрузки OpenCart на левой стороне, Вам нужно сделать это сейчас и оставить ее открытой. В каталоге удаленного сайта (справа) Вам нужно открыть папку, в которой будет находиться магазин OpenCart. Расположение магазина зависит от того, хотите ли Вы, чтобы магазин отображался на главной странице, в подпапке, субдомен и т.д. Если Вы хотите сделать OpenCart главной страницей, Вам необходимо загрузить файлы в корневую папку своего веб-сайта.</p>
+<div class="alert alert-info" role="alert"> <i class="fa fa-info-circle"></i> Помните, что некоторые службы хостинга требуют, чтобы общедоступные файлы загружались в общедоступный каталог, например public_html, если они должны быть видны на веб-сайте. Вы должны уточнить у своего хостинг-провайдера, где Вы можете загрузить публичные файлы.</div>
+<p>После того, как местоположение магазина OpenCart определено, все содержимое папки загрузки на левой (левой) стороне компьютера Filezilla должно быть выбрано, щелкнуто правой кнопкой мыши и загружено. Загрузка всех файлов может занять несколько минут на FTP-клиенте.</p>
+<div class="alert alert-danger" role="alert"><i class="fa fa-exclamation-circle"></i> Если вы хотите, чтобы магазин находился на главной странице, например, www.shopnow.com, вы должны загрузить содержимое папки &ldquo;upload&rdquo;, но не саму папку &ldquo;upload&rdquo;. Включение папки &ldquo;upload&rdquo; создаст подпапку, делая магазин доступным только на www.shopnow.com/upload.</div>
+<p>После того как Filezilla завершит загрузку файлов в указанное место, вы должны увидеть одинаковые файлы как на левой
+стороне (компьютер), так и на правой стороне (веб-сайт); как видно на скриншоте ниже:</p>
 <p class="text-center"><img src="image/filezilla-file-transfer.png" alt="filezilla file transfer-png" class="img-thumbnail" /></p>
-<p>The Filezilla window should look similar to the above image (minus some directory details). This means that the OpenCart files were successfully transferred the target site. The site now contains the files necessary to setup an OpenCart shop.</p>
+<p>Окно Filezilla должно выглядеть аналогично изображению выше (за исключением некоторых деталей каталога). Это означает, что файлы OpenCart были успешно перенесены на целевой сайт. Сайт теперь содержит файлы, необходимые для настройки магазина OpenCart.</p>
 
 <h2>cPanel</h2>
-<p>If your Web Server provider is using cPanel, you can try with this method without FileZilla.</p>
-<p>Go to the “Upload” folder and select all the files inside and zip it to a new zip file. Login your cPanel and click the “File Manager” to open a new tag in the browser. Upload the new zip file in your target path, it should be inside the public_html folder. After that you can right click the zip file and select “Extract" button and done.</p>
+<p>Если ваш поставщик веб-сервера использует cPanel, Вы можете попробовать этот метод без FileZilla.</p>
+<p>Перейдите в папку «Upload», выберите все файлы внутри и заархивируйте его в новый zip-файл. Войдите в свою cPanel и нажмите «Диспетчер файлов», чтобы открыть новый тег в браузере. Загрузите новый zip-файл в целевой путь, он должен находиться внутри папки public_html. После этого вы можете щелкнуть правой кнопкой мыши по zip-файлу, выбрать кнопку «Извлечь» и все готово.</p>
 <p class="text-center"><img src="image/cpanel-file-manager.png" alt="cPanel File Manager" class="img-thumbnail" /></p>
 
-<h2>Creating a database for the shop</h2>
-<p>The next step is to create a database on the MySQL server for OpenCart to store a shop&#39;s data on. You should log into the site&rsquo;s control panel and locate MySQL Databases. Using MySQL Databases, you can create a new database by entering a database name and a username/password to access this database. The user that was just created needs to be added to the database, along with enabling all of the necessary permissions. We will use this database information later when we are configuring OpenCart using the auto-installer.</p>
+<h2>Создание базы данных для магазина</h2>
+<p>Следующим шагом является создание базы данных на сервере MySQL для OpenCart для хранения данных магазина. Вы должны войти в панель управления сайта и найти базы данных MySQL. Используя базы данных MySQL, Вы можете создать новую базу данных, введя имя базы данных и имя пользователя/пароль для доступа к этой базе данных. Пользователь, который был только что создан, должен быть добавлен в базу данных наряду с включением всех необходимых разрешений. Мы будем использовать эту информацию базы данных позже, когда будем настраивать OpenCart с помощью автоинсталлятора.</p>
 
-<h2>Launch the auto-installer</h2>
-<p>With a new database freshly created, we are now ready to install OpenCart directly onto a website. You should open up a web browser and enter in the web address of where they uploaded OpenCart. If the &quot;install&quot; folder in &quot;upload&quot; was uploaded correctly, you should be automatically greeted by the following page:</p>
+<h2>Запуск автоинсталлятор</h2>
+<p>С новой созданной базой данных мы готовы установить OpenCart прямо на веб-сайт. Вы должны открыть веб-браузер и ввести в веб-адрес, куда они загрузили OpenCart. Если папка &quot;install&quot; в &quot;upload&quot; при загрузке былазагружена правильно, Вы должны автоматически получить доступ к следующей странице:</p>
 <p class="text-center"><img src="image/opencart-step1.png" alt="opencart step1" class="img-thumbnail" /></p>
-<p>This page is the installation page. The following steps will help you complete the installation process for OpenCart.</p>
+<p>Эта страница является страницей установки. Следующие шаги помогут Вам завершить процесс установки OpenCart.</p>
 
-<h3>Step 1. License</h3>
-<p>You may read through the license, check &quot;I agree to the license&quot;, and press &ldquo;Continue&rdquo;.</p>
+<h3>Шаг 1. Лицензия</h3>
+<p>Вы можете прочитать лицензию, выбрать &quot;Я согласен с лицензией&quot;, и нажать&ldquo;Продолжить&rdquo;.</p>
 
-<h3>Step 2. Pre-Installation</h3>
-<p>This step checks to see if the web server has the technical requirements and correct permissions to setup OpenCart properly. If red marks are visible on #1 or #2, you need to make sure that these components are properly installed onto the web server. You should contact your hosting service if there are any issues with this. If there are red marks on #3 or #4, there might have been an issue with uploading the files using the FTP client. If everything is configured correctly and green marks are visible (as seen below), you may press &quot;Continue&quot;.</p>
+<h3>Шаг 2. Предварительная установка</h3>
+<p>Этот шаг проверяет, есть ли у веб-сервера технические требования и правильные разрешения для правильной настройки OpenCart. Если красные пятна видны на №1 или №2, необходимо убедиться, что эти компоненты правильно установлены на веб-сервере. Вы должны связаться с Вашим хостингом, если есть какие-либо проблемы с этим. Если на №3 или №4 имеются красные метки, возможно, возникла проблема с загрузкой файлов с помощью FTP-клиента. Если все настроено правильно и зеленые метки видны (как показано ниже), Вы можете нажать &quot;Продолжить&quot;.</p>
 <p class="text-center"><img src="image/opencart-step2.png" alt="opencart step2" class="img-thumbnail" /></p>
-<div class="alert alert-info" role="alert"><i class="fas fa-info-circle"></i> As of version 2.3.0.2, the following files need to be renamed to continue to Step 3:
+<div class="alert alert-info" role="alert"><i class="fas fa-info-circle"></i> Начиная с версии 2.3.0.2, для перехода к шагу 3 необходимо переименовать следующие файлы:
   <ul class="list-unstyled">
     <li>config-dist.php <i class="fas fa-long-arrow-alt-right"></i> config.php</li>
     <li>admin/config-dist.php <i class="fas fa-long-arrow-alt-right"></i> config.php</li>
   </ul>
 </div>
-<h3>Step 3. Configuration</h3>
-<p>You need to fill in the spaces below #1 by adding the database connection details (username/password, database name) established when you created the store&#39;s database using MySQL Databases. Under #2, you should create a new username and password for administration access to the OpenCart shop. When finished, you may press &quot;Continue&quot;.</p>
+<h3>Шаг 3. Конфигурация</h3>
+<p>Вам необходимо заполнить пробелы ниже №1, добавив сведения о соединении с базой данных (имя пользователя, пароль, имя базы данных), установленные при создании базы данных хранилища с использованием баз данных MySQL. Под номером 2 Вы должны создать новое имя пользователя и пароль для доступа администратора к магазину OpenCart. Когда закончите, Вы можете нажать &quot;Продолжить&quot;.</p>
 <p class="text-center"><img src="image/opencart-step3.png" alt="opencart step3" class="img-thumbnail" /></p>
 
-<h3>Step 4. Finished</h3>
-<p>Now that installation is complete, the &quot;install&quot; folder is no longer required. You should delete the &ldquo;install&rdquo; folder in the Remote Site section of Filezilla for security reasons. You now have the option to browse the frontend of your shop or choose to log into the administration side.</p>
+<h3>Шаг 4. Завершение</h3>
+<p>Теперь, когда установка завершена, папка &quot;install&quot; больше не требуется. Из соображений безопасности Вам следует удалить папку &ldquo;install&rdquo; в разделе «Удаленный сайт» Filezilla. Теперь у вас есть возможность просмотреть интерфейс вашего магазина или войти в систему в панели администратора.</p>
 <p class="text-center"><img src="image/opencart-step4.png" alt="opencart step4" class="img-thumbnail" /></p>
-<p>After the install, you should make the necessary steps towards improving the security of your server and OpenCart store directory. These steps are detailed in <a href="en-gb/administration/security/">Basic security practices</a>.</p>
+<p>После установки вы должны предпринять необходимые шаги для повышения безопасности вашего сервера и каталога магазина OpenCart. Эти шаги подробно описаны в <a href="ru-ru/administration/security/">Основных правилах безопасности</a>.</p>
 <h2>Installing vQmod</h2>
-<p>vQmod for OpenCart lets you add modules to your store without modifying the core OpenCart code. See vQmod for more information on how to download and install <a href="en-gb/administration/vqmod/">vQmod </a>for your store.</p>
+<p>vQmod для OpenCart позволяет добавлять модули в Ваш магазин без изменения основного кода OpenCart. См. VQmod для
+получения дополнительной информации о том, как загрузить и установить <a href="ru-ru/administration/vqmod/">vQmod </a>для Вашего магазина.</p>
 
-<h2>Uninstalling OpenCart</h2>
-<p>Uninstalling OpenCart is a quick and simple process.</p>
+<h2>Удаление OpenCart</h2>
+<p>Удаление OpenCart - это быстрый и простой процесс.</p>
 
 <ol>
-  <li>Delete the files/folders in the location you uploaded them to in Filezilla. &nbsp;</li>
-  <li>Delete the OpenCart database from MySQL Databases or phpMyAdmin.</li>
+  <li>Удалите файлы / папки в том месте, куда Вы загрузили их в Filezilla.</li>
+  <li>Удалить базу данных OpenCart из баз данных MySQL или phpMyAdmin.</li>
 </ol>
 
-<div class="alert alert-danger" role="alert"><i class="fa fa-exclamation-circle"></i> Once OpenCart is uninstalled, all product and customer information will be lost. You can save a backup database file in case you want to reinstall OpenCart at a later time. See <a href="en-gb/tools/backup/">Backup/Restore</a> for more information.</div>
+<div class="alert alert-danger" role="alert"><i class="fa fa-exclamation-circle"></i> После удаления OpenCart вся информация о продукте и клиенте будет потеряна. Вы можете сохранить файл резервной базы данных на случай, если Вы захотите переустановить OpenCart позже. См. <a href="en-gb/tools/backup/">Резервное копирование/Восстановление</a> для получения дополнительной информации.</div>
 
-<h2>Support</h2>
-<p>If there are any issues regarding your store&#39;s installation or update, please visit the&nbsp; <a href="http://forum.opencart.com/">Installation, Upgrade, &amp; Config Support</a> section of the OpenCart community forum.</p>
+<h2>Служба поддержки</h2>
+<p>Если есть какие-либо проблемы, связанные с установкой или обновлением вашего магазина, посетите раздел <a href="http://forum.opencart.com/">Установка, обновление, настройка</a> форума сообщества OpenCart.</p>
