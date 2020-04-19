@@ -1,52 +1,51 @@
 ---
 layout: ru-ru/default
-title: "Extension Shipping - OpenCart Documentation"
+title: "Расширение Доставка - Документация OpenCart"
 permalink: ru-ru/extension/shipping/
 ---
-<h1>Shipping</h1>
-<h2>Shipping</h2>
-<p>The shipping methods extensions can accessed under Extensions &gt; Shipping. The core shipping methods seen below are included with the OpenCart package.</p>
+<h1>Доставка</h1>
+<h2>Доставка</h2>
+<p>Расширения методов доставки доступны в разделе Расширения &gt; Доставка. Основные способы доставки, показанные ниже, включены в пакет OpenCart.</p>
 
 <p class="text-center"><img src="image/extension/shipping/shipping-method.png" alt="Extension - Shipping Method" class="img-responsive" /></p>
 
-<p>The shipping methods need to be installed before they can be enabled or disabled for the store. To Install a shipping method, click &quot;Install&quot; under &quot;Action&quot;. Once the shipping method is installed, you can edit the specifications of that shipping method, or uninstall it to remove the shipping method information.</p>
+<p>Способы доставки должны быть установлены до того, как их можно будет включить или отключить для магазина. Чтобы установить способ доставки, нажмите &quot;Установить&quot; под &quot;Действием&quot;. После установки метода доставки Вы можете отредактировать спецификации этого метода доставки или удалить его, чтобы удалить информацию о способе доставки.</p>
 
-<h2>Editing the shipping method</h2>
-<p>Each shipping method needs to be individually edited to meet your shop&#39;s shipping requirements and to specify the prices for that service. There are a few details that are present across all shipping methods:</p>
-
+<h2>Редактирование способа доставки</h2>
+<p>Каждый способ доставки должен быть отредактирован индивидуально, чтобы соответствовать требованиям доставки Вашего магазина и указать цены на эту услугу. Есть несколько деталей, которые присутствуют во всех способах доставки:</p>
 
 <table class="table table-bordered">
-	<tbody><tr>
-		<th width="30%">Total</th>
-		<td width="*">Set the minimum price for seleting this shipping method.</td>
-	</tr>
+  <tbody><tr>
+    <th width="30%">Всего</th>
+    <td width="*">Установите минимальную цену для выбора этого способа доставки.</td>
+  </tr>
   <tr>
-		<th>Geo Zone</th>
-		<td>the geographical zone that this shipping method is available to. The GeoZone can be created or configured at System &gt; Localisation &gt; GeoZone in the administration. For more information visit <a href="en-gb/system/localisation/geo-zone/">Localisation</a>.</td>
-	</tr>
-	<tr>
-		<th>Status</th>
-		<td>The status determines whether the shipping method will be available in the store front.</td>
-	</tr>
-	<tr>
-		<th>Sort Order</th>
-		<td>The sort order affects the placement of the shipping method among other available shipping methods. A shipping method with a sort order of 1 will be positioned above another shipping method with a sorting order of 2 in the store front.</td>
-	</tr>
+    <th>ГеоЗона</th>
+    <td>географическая зона, для которой доступен этот способ доставки. ГеоЗона может быть создана или настроена в Система &gt; Локализация &gt; ГеоЗона в администрации. Для получения дополнительной информации посетите <a href="ru-ru/system/localisation/geo-zone/">Локализация</a>.</td>
+  </tr>
+  <tr>
+    <th>Статус</th>
+    <td>Статус определяет, будет ли доступен способ доставки в магазине.</td>
+  </tr>
+  <tr>
+    <th>Порядок сортировки</th>
+    <td>Порядок сортировки влияет на размещение метода доставки среди других доступных методов доставки. Способ доставки с порядком сортировки 1 будет размещен над другим способом доставки с порядком сортировки 2 на фронте магазина.</td>
+  </tr>
 </tbody>
 </table>
 
-<h2>Shipping methods in the store front</h2>
-<p>Editing shipping methods in the administration will affect the shipping methods available to customers in both the store front Shopping Cart and Checkout pages.</p>
+<h2>Способы доставки в магазине</h2>
+<p>Изменение способов доставки в администрации повлияет на способы доставки, доступные покупателям на страницах корзины покупок и на странице оформления заказа.</p>
 
 <h3>Shopping cart</h3>
 <p class="text-center"><img src="image/extension/shipping/shipping-store-front-cart.png" alt="Store Front - Shipping Field" class="img-responsive" /></p>
-<p>The shopping cart has a special feature called &quot;Estimate Shipping &amp; Taxes&quot; that will calculate a shipping payment for a customer&#39;s order. See <a href="en-gb/extension/order-total/">Order totals</a> to enable or disable this feature. When a customer enters their regional information, a popup window will ask the customer to select a shipping method. In this window, every shipping method that is enabled under Shipping Methods will be listed according to their sorting order. The store below enabled Free Shipping and Flat Shipping Rates as their two available shipping methods.</p>
+<p>В корзине есть специальная функция, которая называется &quot;Рассчитать доставку &amp; Налоги&quot; это рассчитает стоимость доставки заказа клиента. See <a href="ru-ru/extension/order-total/">Итоги заказа</a> включить или отключить эту функцию. Когда клиент вводит свою региональную информацию, во всплывающем окне будет предложено выбрать способ доставки. В этом окне все методы доставки, которые включены в разделе Методы доставки, будут перечислены в соответствии с порядком их сортировки. В приведенном ниже магазине включены два варианта доставки: бесплатная доставка и фиксированная стоимость доставки.</p>
 <p class="text-center"><img src="image/extension/shipping/shipping-store-front-cart-get-quote.png" alt="Store Front - Shipping Get Quote" class="img-responsive" /></p>
-<p>After the customer applies the shipping, the shipping method and it&#39;s cost will be displayed under the Totals.</p>
+<p>После того, как клиент применяет отгрузку, способ доставки и его стоимость будут отображаться в поле Итоги.</p>
 
-<h3>Checkout</h3>
-<p>In Step 4 of the Checkout, the customer will need to select a shipping method before finalizing their purchase. The Delivery Method will display every shipping method that was enabled in the administration. The store in the screenshot below enabled the Free Shipping and Flat rate shipping methods. The shipping methods were positioned according to their sorting order, with their prices included on the right side.</p>
+<h3>Оформление</h3>
+<p>На шаге 4 оформления заказа клиенту необходимо выбрать способ доставки, прежде чем завершить покупку. Метод доставки будет отображать каждый метод доставки, который был включен в администрировании. В магазине на скриншоте ниже включены методы бесплатной доставки и доставки по фиксированной ставке. Способы доставки были расположены в соответствии с порядком сортировки, цены указаны с правой стороны.</p>
 <p class="text-center"><img src="image/extension/shipping/shipping-store-front-checkout.png" alt="Store Front - Checkout Delivery Method" class="img-responsive" /></p>
 
-<h3>Support</h3>
-<p>To receive support for the Shipping extensions, visit the <a href="http://forum.opencart.com/viewforum.php?f=114" target="_blank">Shipping Extension</a> section of the support forum.</p>
+<h3>Поддержка</h3>
+<p>Чтобы получить поддержку расширений доставки, посетите <a href="http://forum.opencart.com/viewforum.php?f=114" target="_blank">Расширение доставки</a> раздел форума поддержки.</p>

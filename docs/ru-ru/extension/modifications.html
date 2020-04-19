@@ -1,54 +1,53 @@
 ---
 layout: ru-ru/default
-title: "Modifications - OpenCart Documentation"
+title: "Модификации - Документация OpenCart"
 permalink: ru-ru/extension/modifications/
 ---
-<h1>Modifications</h1>
-<h2>Modifications</h2>
-<p>OpenCart modification system allows store owners to extend and edit the system functionality without directly editing core files. The modification system works with XML modification files formatted in a specific way. An XML modification files gives information to the system which file should be changed, which code should be changed and what changes to be done to this code.</p>
-<p>To see a list of all the modifications applied to your system go to Extension > Modifications
+<h1>Модификации</h1>
+<h2>Модификации</h2>
+<p>Система модификации OpenCart позволяет владельцам магазинов расширять и редактировать функциональные возможности системы без непосредственного редактирования основных файлов. Система модификации работает с файлами модификации XML, отформатированными определенным образом. Файлы модификации XML дают информацию системе, какой файл должен быть изменен, какой код должен быть изменен и какие изменения должны быть сделаны в этом коде.</p>
+<p>Чтобы увидеть список всех изменений, примененных к Вашей системе, перейдите на Расширения > Модификации
 </p>
-<p>You can apply modifications either by uploading a single modification file or a compressed file containing XML, PHP and SQL scripts. Both of these approaches use the <a href="http://docs.opencart.com/extension/installer/">Extension Installer</a> as a way to be imported into an OpenCart system.</p>
+<p>Вы можете применить изменения либо загрузив один файл модификации, либо сжатый файл, содержащий скрипты XML, PHP и SQL. Оба эти подхода используют <a href="ru-ru/extension/installer/">Установщик расширений</a> как способ импорта в систему OpenCart.</p>
 
-<h2>Uploading a single modification file</h2>
-<p>To install a modification first you need to upload it. Go to Extension > Extension Installer and click the upload button.</p>
+<h2>Загрузка одного файла модификации</h2>
+<p>Чтобы установить модификацию сначала вам нужно загрузить ее. Перейдите в Расширения > Установщик расширений и нажмите кнопку загрузки.</p>
 <p class="text-center"><img src="image/extension-modification-single-file-upload.jpg" alt="single file upload" class="img-thumbnail" /></p>
-<p>OpenCart modification files follow a strict naming rules. In order for your modification to be accepted by the installer and uploaded to the system it should have a file extension of <strong>.ocmod.xml</strong>. Here is an example <strong>yourmodifcation.ocmod.xml</strong></p>
-<p>After clicking upload a popup will open. Locate the modification file on your local drive and click Open</p>
+<p>Файлы модификации OpenCart следуют строгим правилам именования. Чтобы Ваше изменение было принято установщиком и загружено в систему, оно должно иметь расширение файла: <strong>.ocmod.xml</strong>. Вот пример <strong>yourmodifcation.ocmod.xml</strong></p>
+<p>После нажатия кнопки загрузки откроется всплывающее окно. Найдите файл модификации на локальном диске и нажмите «Открыть».</p>
 <p class="text-center"><img src="image/extension-modification-single-file-open.jpg" alt="open a file" class="img-thumbnail" /></p>
-<p>If the upload is successful, you will receive a green success message.</p>
+<p>Если загрузка прошла успешно, Вы получите зеленое сообщение об успехе.</p>
 <p class="text-center"><img src="image/xtension-modification-single-file-success.jpg" alt="upload success" class="img-thumbnail" /></p>
-<p>To apply the changes characterised by the uploaded modification file navigate to Extension > Modifications and click the refresh button at the upper right corner.</p>
+<p>Чтобы применить изменения, характеризуемые загруженным файлом модификации, перейдите к Расширения > Модификации и нажмите кнопку обновления в правом верхнем углу.</p>
 <p class="text-center"><img src="image/extension-modification-single-file-refresh-modifcations.jpg" alt="refresh modification" class="img-thumbnail" /></p>
-<p>Once the modifications are applied you will receive a confirmation in the toolbar as shown below:</p>
+<p>После внесения изменений Вы получите подтверждение на панели инструментов, как показано ниже:</p>
 <p class="text-center"><img src="image/extension-modification-single-file-success-modifcations.jpg" alt="success modification" class="img-thumbnail" /></p>
-<h2>Uploading a compressed file containing modification files</h2>
-<p>OpenCart allows users to install third party extension which add new feature or extend the default functionality. These extensions are also uploaded through the Extension Installer. They should also follow the naming rules for opencart modifications with the exception that the file extension is your_modification.ocmod.zip</p>
-<p>Compressed ocmod files, unlike single ocmod.xml files are not always modifying the core system files. In those cases the zip contains only dedicated extension files. If the extension which is about to be installed requires a modification of some of the core system files, besides the dedicated extension files, install.xml file containing those changes is added to the zip.</p>
-<p>Here is a sample file and its content of compressed file containing an install.xml and install.php files:</p>
+<h2>Загрузка сжатого файла, содержащего файлы модификации</h2>
+<p>OpenCart позволяет пользователям устанавливать стороннее расширение, которое добавляет новую функцию или расширяет функциональность по умолчанию. Эти расширения также загружаются через Установщик расширений. Они также должны следовать правилам именования для модификаций opencart, за исключением того, что расширение файла your_modification.ocmod.zip</p>
+<p>Сжатые файлы ocmod, в отличие от отдельных файлов ocmod.xml, не всегда модифицируют основные системные файлы. В этих случаях почтовый индекс содержит только специальные файлы расширений. Если расширение, которое должно быть установлено, требует изменения некоторых системных файлов ядра, кроме выделенных файлов расширений, в zip-файл добавляется файл install.xml, содержащий эти изменения.</p>
+<p>Вот пример файла и его содержимое сжатого файла, содержащего файлы install.xml и install.php:</p>
 <p class="text-center"><img src="image/extension-modification-compressed-file.jpg" alt="comressed file" class="img-thumbnail" /></p>
 <p class="text-center"><img src="image/extension-modification-compressed-file-content.jpg" alt="compressed file content" class="img-thumbnail" /></p>
-<p>Here is what those files and folders represent:</p>
+<p>Вот что представляют эти файлы и папки:</p>
 <ul>
-	<li>&quot;upload&quot;</li>
-		<span> - The upload folder contains all of the core files of the extension you are about to install. </span>
-	<li>&quot;install.php - optional&quot;</li>
-		<span> - This is an optional file containing custom php scripts implementing any post-installation logic if needed. </span>
-	<li>&quot;install.xml - optional&quot;</li>
-		<span> - This is the file which describes the changes which your extension will make to the core system files. It also creates a virtual copy of each one of them and performs the described modifications. </span>
-
+  <li>&quot;загрузка&quot;</li>
+    <span> - Папка загрузки содержит все основные файлы расширения, которое Вы собираетесь установить.</span>
+  <li>&quot;install.php - необязательно&quot;</li>
+    <span> - Это необязательный файл, содержащий пользовательские сценарии php, реализующие любую логику после установки, если это необходимо.</span>
+  <li>&quot;install.xml - необязательно&quot;</li>
+    <span> - Это файл, который описывает изменения, которые Ваше расширение внесет в основные системные файлы. Он также создает виртуальную копию каждого из них и выполняет описанные модификации.</span>
 </ul>
-<h2>Installing an extension containing a modification file</h2>
-<p>Go to Extension->Extension installer and click upload.</p>
+<h2>Установка расширения, содержащего файл модификации</h2>
+<p>Перейдите в Модификации->Установщик расширений и нажмите загрузить.</p>
 <p class="text-center"><img src="image/extension-modification-compressed-file-upload.jpg" alt="upload comressed file" class="img-thumbnail" /></p>
-<p>Select the correct modification file from your local drive and click &quot;Open&quot;</p>
+<p>Выберите правильный файл модификации с вашего локального диска и нажмите &quot;Открыть&quot;</p>
 <p class="text-center"><img src="image/extension-modification-compressed-file-open.jpg
 " alt="compressed file open" class="img-thumbnail" /></p>
 <p class="text-center"><img src="image/extension-modification-compressed-success.jpg
 " alt="upload success" class="img-thumbnail" /></p>
-<p>After you verify that the upload is successful  you need to navigate to Extension > Modifications and click the refresh button.</p>
+<p>После того, как Вы убедитесь, что загрузка прошла успешно, Вам нужно перейти к Расширения > Модификации и нажать кнопку обновления.</p>
 <p class="text-center"><img src="image/extension-modification-compressed-file-modification-refresh.jpg
 " alt="modification refresh" class="img-thumbnail" /></p>
-<p>As mentioned above after successfully applying the modification the system will notify you with green success message.</p>
+<p>Как уже упоминалось Выше, после успешного применения модификации система уведомит Вас зеленым сообщением об успехе.</p>
 <p class="text-center"><img src="image/extension-modification-compressed-refresh-success.jpg
 " alt="refresh success" class="img-thumbnail" /></p>
