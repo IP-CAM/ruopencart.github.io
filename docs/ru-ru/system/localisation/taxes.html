@@ -1,28 +1,28 @@
 ---
 layout: ru-ru/default
-title: "Taxes - OpenCart Documentation"
+title: "Налоги - Документация OpenCart"
 permalink: ru-ru/system/localisation/tax/
 ---
-<h1>Localisation Taxes</h1>
-<h2>Taxes</h2>
-<p>The Taxes section in Localisation allows the administrator to create the taxes that will be applied to specific products in the store.</p>
+<h1>Локализация налогов</h1>
+<h2>Налоги</h2>
+<p>Раздел Налоги в локализации позволяет администратору создавать налоги, которые будут применяться к конкретным продуктам в магазине.</p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/3Ombxt0y_rA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-<h3>Tax rates</h3>
-<p>The tax rate will be used to calculate the taxes from an order. The following information is needed to save a tax rate to the administration:</p>
+<h3>Налоговые ставки</h3>
+<p>Налоговая ставка будет использоваться для расчета налогов с заказа. Следующая информация необходима для сохранения налоговой ставки для администрации:</p>
 <ul>
-  <li><strong>Tax Name</strong>: A name for the tax that will be displayed in the store front when taxes are added to order total.</li>
-  <li><strong>Tax Rate</strong>: A number value for the tax.</li>
-  <li><strong>Type</strong>: Determines whether the number value in Tax Rate is a fixed amount or a percentage of the total amount of an order.</li>
-  <li><strong>Customer Group</strong>: Selecting a customer group will add this tax to all the customers within this group. Multiple customer groups can be selected at once.</li>
-  <li><strong>Geo Zone</strong>: Selecting a Geo Zone will apply the tax to the regions and countries within a Geo Zone.</li>
+  <li><strong>Название налога</strong>: Название для налога, которое будет отображаться на витрине магазина при добавлении налогов к общей сумме заказа.</li>
+  <li><strong>Ставка налога</strong>: Числовое значение для налога</li>
+  <li><strong>Тип</strong>: Определяет, является ли числовое значение в налоговой ставке фиксированной суммой или в процентах от общей суммы заказа.</li>
+  <li><strong>Группа клиентов</strong>: Выбор группы клиентов добавит этот налог ко всем клиентам в этой группе. Несколько групп клиентов могут быть выбраны одновременно.</li>
+  <li><strong>Геозона</strong>: При выборе геозоны налог будет применяться к регионам и странам, входящим в геозону.</li>
 </ul>
 <p class="text-center"><img src="image/system-localisation-taxrate.png" alt="add tax rate backend" class="img-thumbnail" /></p>
-<h3>Tax class</h3>
-<p>Tax classes can store multiple tax rates into one category. The taxes can be customized to calculate the taxes based on the payment address (customer) or the store&#39;s address. Tax classes require the following information:</p>
+<h3>Налоговый класс</h3>
+<p>Налоговые классы могут хранить несколько налоговых ставок в одной категории. Налоги могут быть настроены для расчета налогов на основе адреса платежа (покупателя) или адреса магазина. Налоговые классы требуют следующую информацию:</p>
 <ul>
-  <li><strong>Tax Class Title</strong></li>
-  <li><strong>Description</strong></li>
-  <li><strong>Tax Rate</strong>: selecting &quot;Add Rule&quot; will add a tax rate that was created in Tax Rates. Base On requires either the payment address or the store address to be selected. This will determine the amount of tax added to the shopping cart total in the store front. Priority determines the position of the tax rate if other tax rates are listed with it.</li>
+  <li><strong>Название налогового класса</strong></li>
+  <li><strong>Описание</strong></li>
+  <li><strong>Ставка налога</strong>: выбор &quot;Добавить Правило&quot; добавит налоговую ставку, которая была создана в Налоговых ставках. Основывается на либо адрес оплаты, либо адрес магазина. Это определит сумму налога, добавленную к общей сумме корзины покупок в магазине. Приоритет определяет позицию налоговой ставки, если с ней указаны другие налоговые ставки.</li>
 </ul>
 <p class="text-center"><img src="image/system-localisation-taxclass.png" alt="add tax class backend" class="img-thumbnail" /></p>
-<p>The tax class must be added to each product individually in order to apply tax rates for a purchase. The tax class field is located under the Data tab in Products. See Products for more information.</p>
+<p>Налоговый класс должен быть добавлен к каждому продукту индивидуально, чтобы применять налоговые ставки для покупки. Поле налогового класса находится на вкладке «Данные» в разделе «Продукты». Смотрите продукты для получения дополнительной информации.</p>

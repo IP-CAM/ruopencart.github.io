@@ -1,28 +1,27 @@
 ---
 layout: ru-ru/default
-title: "API - OpenCart Documentation"
+title: "API - Документация OpenCart"
 permalink: ru-ru/system/users/api/
 ---
 <h1>API</h1>
 
 <h2>API</h2>
-<p>For using OpenCart API you should enable it previously, via admin part of you're site.<br />
-Go to System->Users->API and you'll see a predefined user named "Default".<br />
-Edit it - and the are no API-key so generate it, by pressing the button and set "Status" to enable.<br />
-Next, add you'r IP to list of permitted for API access on another tab.</p>
+<p>Для использования OpenCart API Вы должны включить его предварительно через административную часть Вашего сайта.<br />
+Отредактируйте его - и у Вас нет API-ключа, поэтому сгенерируйте его, нажав кнопку и установив «Статус» для включения.<br />
+Затем добавьте свой IP-адрес в список разрешенных для доступа API на другой вкладке..</p>
 
-<p>API is avaliable via URL like</p>
+<p>API доступен через URL, например</p>
 <pre><code>http://myopencart.example.com/index.php?route=api/cart/add</pre></code>
-<p>where route is using choose appropriate controller.</p>
+<p>где используется маршрут, выберите соответствующий контроллер.</p>
 
-<h3>NOTES:</h3>
+<h3>ЗАМЕТКИ:</h3>
 <ul>
-  <li>API users always have customer_id as '0'. And have the own api_id.</li>
-  <li>I'll us python-requests library for this examples, but the main idea is describing parameters so console curl will be fine enough.</li>
-  <li>And in descriptions I'll assume what we have "oc_" prefix on DB tables.</li>
+  <li>Пользователи API всегда имеют customer_id как «0». И иметь свой собственный api_id.</li>
+  <li>Для этих примеров я буду использовать библиотеку Python-запросов, но основная идея заключается в описании параметров, поэтому сгибание консоли будет достаточно хорошим.</li>
+  <li>И в описаниях я буду предполагать, что у нас есть префикс "oc_" в таблицах БД.</li>
 </ul>
 
-<p>Firstly, you can and definitly should get token for you session - you'll get cookie file and OpenCart server will identify activity by this way.</p>
+<p>Во-первых, Вы можете и обязательно должны получить токен для своей сессии - Вы получите файл cookie, и сервер OpenCart определит активность таким образом.</p>
 
 <pre><code>import requests
 
@@ -38,20 +37,19 @@ s.post(
 ).text
 </code></pre>
 
-<p>If everything was done right, you'll get json-response with api_token for you'r session.
-Check site admin API page, edit API user and open "Sessions" tab - you can see established session.</p>
+<p>Если все было сделано правильно, Вы получите json-response с маркером api для Вашей сессии. Проверьте страницу API администратора сайта, отредактируйте пользователя API и откройте вкладку «Сеансы» - Вы можете увидеть установленный сеанс.</p>
 
-<p>Now, what you can do with OpenCart API?</p>
+<p>Теперь, что Вы можете сделать с OpenCart API?</p>
 
-<h3>Login</h3>
+<h3>Вход</h3>
 <h4>api/login</h4>
 
-<p>Establishing session for API user by key
+<p>Установление сеанса для пользователя API по ключу
 PARAMS:<br />
 DATA:<br />
 username:username from oc_api<br />
 key:key from oc_api<br />
-EXAMPLE:</p>
+ПРИМЕР:</p>
 
 <pre><code>
 session.post(
@@ -64,15 +62,15 @@ session.post(
 )
 </code></pre>
 
-<h3>Currency</h3>
+<h3>Валюта</h3>
 <h4>api/currency</h4>
 
-<p>DESCRIPTION:change session currency<br />
+<p>ОПИСАНИЕ: изменить валюту сессии<br />
 PARAMS:<br />
 api_token<br />
 DATA:<br />
 currency:code from table oc_currency<br />
-EXAMPLE:</p>
+ПРИМЕР:</p>
 
 <pre><code>
 session.post(
@@ -82,17 +80,17 @@ session.post(
 )
 </code></pre>
 
-<h3>Cart</h3>
+<h3>Корзина</h3>
 <h4>api/cart/add</h4>
 
-<p>DESCRIPTION:adding product to cart<br />
+<p>ОПИСАНИЕ: добавление товара в корзину<br />
 PARAMS:<br />
 api_token<br />
 DATA:<br />
 product_id:product_id from table oc_cart<br />
 quantity:quantity from table oc_cart<br />
 option:option array from table oc_cart<br />
-EXAMPLE:</p>
+ПРИМЕР:</p>
 
 <pre><code>
 session.post(
@@ -107,13 +105,13 @@ session.post(
 
 <h4>api/cart/edit</h4>
 
-<p>DESCRIPTION:edit product quantity in cart<br />
+<p>ОПИСАНИЕ: изменить количество товара в корзине<br />
 PARAMS:<br />
 api_token<br />
 DATA:<br />
 key:cart_id from table oc_cart  <br />
 quantity:quantity from table oc_cart<br />
-EXAMPLE:</p>
+ПРИМЕР:</p>
 
 <pre><code>session.post(
     'http://myopencart.example.com/index.php?route=api/cart/edit',
@@ -127,12 +125,12 @@ EXAMPLE:</p>
 
 <h4>api/cart/remove</h4>
 
-<p>DESCRIPTION:removing product from cart<br />
+<p>ОПИСАНИЕ: удаление товара из корзины<br />
 PARAMS:<br />
 api_token<br />
 DATA:<br />
 key:cart_id from table oc_cart<br />
-EXAMPLE:</p>
+ПРИМЕР:</p>
 
 <pre><code>session.post(
     'http://myopencart.example.com/index.php?route=api/cart/remove',
@@ -145,11 +143,11 @@ EXAMPLE:</p>
 
 <h4>api/cart/products</h4>
 
-<p>DESCRIPTION:cart content<br />
+<p>ОПИСАНИЕ: содержимое корзины<br />
 PARAMS:<br />
 api_token<br />
 DATA:<br />
-EXAMPLE:</p>
+ПРИМЕР:</p>
 
 <pre><code>session.post(
     'http://myopencart.example.com/index.php?route=api/cart/products',
@@ -158,16 +156,16 @@ EXAMPLE:</p>
 )
 </code></pre>
 
-<h3>Coupon</h3>
+<h3>Купон</h3>
 
 <h4>api/coupon</h4>
 
-<p>DESCRIPTION:apply existing coupon<br />
+<p>ОПИСАНИЕ: применить существующий купон<br />
 PARAMS:<br />
 api_token<br />
 DATA:<br />
 coupon:code from oc_coupon;<br />
-EXAMPLE:</p>
+ПРИМЕР:</p>
 
 
 <pre><code>session.post(
@@ -179,11 +177,11 @@ EXAMPLE:</p>
 )
 </code></pre>
 
-<h3>Customer</h3>
+<h3>Клиент</h3>
 
 <h4>api/customer</h4>
 
-<p>DESCRIPTION:set customer for current session<br />
+<p>ОПИСАНИЕ: установить клиента для текущей сессии<br />
 PARAMS:<br />
 api_token<br />
 DATA:<br />
@@ -191,7 +189,7 @@ firstname:<br />
 lastname:<br />
 email:<br />
 telephone:<br />
-EXAMPLE:</p>
+ПРИМЕР:</p>
 
 
 <pre><code>session.post(
@@ -206,15 +204,15 @@ EXAMPLE:</p>
 )
 </code></pre>
 
-<h3>Voucher</h3>
+<h3>Сертификат</h3>
 <h4>api/voucher</h4>
 
-<p>DESCRIPTION:apply existing voucher<br />
+<p>ОПИСАНИЕ: применить существующий сертификат<br />
 PARAMS:<br />
 api_token<br />
 DATA:<br />
 voucher:code from oc_voucher;<br />
-EXAMPLE:</p>
+ПРИМЕР:</p>
 
 
 <pre><code>session.post(
@@ -228,7 +226,7 @@ EXAMPLE:</p>
 
 <h4>api/voucher/add</h4>
 
-<p>DESCRIPTION:add new voucher for current session<br />
+<p>ОПИСАНИЕ: добавить новый ваучер для текущей сессии<br />
 PARAMS:<br />
 api_token<br />
 DATA:<br />
@@ -238,7 +236,7 @@ to_name:to_name from oc_voucher  <br />
 to_email:to_email from oc_voucher  <br />
 amount :amount from oc_voucher in selected currency  <br />
 code :code from oc_voucher<br />
-EXAMPLE:</p>
+ПРИМЕР:</p>
 
 
 <pre><code>session.post(
@@ -255,11 +253,11 @@ EXAMPLE:</p>
 )
 </code></pre>
 
-<h3>Shipping</h3>
+<h3>Доставка</h3>
 
 <h4>api/shipping/address -</h4>
 
-<p>DESCRIPTIONIPTION:set shipping address for current session<br />
+<p>ОПИСАНИЕ: установить адрес доставки для текущего сеанса<br />
 PARAMS:<br />
 api_token<br />
 DATA:<br />
@@ -269,7 +267,7 @@ address_1  <br />
 city  <br />
 country_id  <br />
 zone_id<br />
-EXAMPLE:</p>
+ПРИМЕР:</p>
 
 
 <pre><code>session.post(
@@ -292,7 +290,7 @@ EXAMPLE:</p>
 PARAMS:<br />
 api_token<br />
 DATA:<br />
-EXAMPLE:</p>
+ПРИМЕР:</p>
 
 
 <pre><code>session.post(
@@ -303,12 +301,12 @@ EXAMPLE:</p>
 
 <h4>api/shipping/method</h4>
 
-<p>DESCRIPTION:set shipping method for current session<br />
+<p>ОПИСАНИЕ: установить способ доставки для текущего сеанса<br />
 PARAMS:<br />
 api_token<br />
 DATA:<br />
 shipping_method<br />
-EXAMPLE:</p>
+ПРИМЕР:</p>
 
 
 <pre><code>session.post(
@@ -320,15 +318,15 @@ EXAMPLE:</p>
 )
 </code></pre>
 
-<h3>Reward</h3>
+<h3>Награда</h3>
 
 <h4>api/reward</h4>
 
-<p>DESCRIPTION:<br />
+<p>ОПИСАНИЕ:<br />
 PARAMS:<br />
 api_token<br />
 DATA:<br />
-EXAMPLE:</p>
+ПРИМЕР:</p>
 
 
 <pre><code>session.post(
@@ -341,11 +339,11 @@ EXAMPLE:</p>
 
 <h4>api/reward/maximum</h4>
 
-<p>DESCRIPTION:<br />
+<p>ОПИСАНИЕ:<br />
 PARAMS:<br />
 api_token<br />
 DATA:<br />
-EXAMPLE:</p>
+ПРИМЕР:</p>
 
 
 <pre><code>session.post(
@@ -358,11 +356,11 @@ EXAMPLE:</p>
 
 <h4>api/reward/available</h4>
 
-<p>DESCRIPTION:<br />
+<p>ОПИСАНИЕ:<br />
 PARAMS:<br />
 api_token<br />
 DATA:<br />
-EXAMPLE:</p>
+ПРИМЕР:</p>
 
 
 <pre><code>session.post(
@@ -373,15 +371,15 @@ EXAMPLE:</p>
 )
 </code></pre>
 
-<h3>Order</h3>
+<h3>Заказ</h3>
 
 <h4>api/order/add</h4>
 
-<p>DESCRIPTION:new order by cart content and payment/delivery information has beeen set by current session<br />
+<p>ОПИСАНИЕ: новый заказ по содержимому корзины и информации об оплате / доставке был установлен в текущем сеансе<br />
 PARAMS:<br />
 api_token<br />
 DATA:<br />
-EXAMPLE:</p>
+ПРИМЕР:</p>
 
 
 <pre><code>session.post(
@@ -392,11 +390,11 @@ EXAMPLE:</p>
 
 <h4>api/order/edit</h4>
 
-<p>DESCRIPTION:<br />
+<p>ОПИСАНИЕ:<br />
 PARAMS:<br />
 api_token<br />
 DATA:<br />
-EXAMPLE:</p>
+ПРИМЕР:</p>
 
 
 <pre><code>session.post(
@@ -409,11 +407,11 @@ EXAMPLE:</p>
 
 <h4>api/order/delete</h4>
 
-<p>DESCRIPTION:<br />
+<p>ОПИСАНИЕ:<br />
 PARAMS:<br />
 api_token<br />
 DATA:<br />
-EXAMPLE:</p>
+ПРИМЕР:</p>
 
 
 <pre><code>session.post(
@@ -426,11 +424,11 @@ EXAMPLE:</p>
 
 <h4>api/order/info</h4>
 
-<p>DESCRIPTION:<br />
+<p>ОПИСАНИЕ:<br />
 PARAMS:<br />
 api_token<br />
 DATA:<br />
-EXAMPLE:</p>
+ПРИМЕР:</p>
 
 
 <pre><code>session.post(
@@ -443,11 +441,11 @@ EXAMPLE:</p>
 
 <h4>api/order/history</h4>
 
-<p>DESCRIPTION:<br />
+<p>ОПИСАНИЕ:<br />
 PARAMS:<br />
 api_token<br />
 DATA:<br />
-EXAMPLE:</p>
+ПРИМЕР:</p>
 
 
 <pre><code>session.post(
@@ -458,11 +456,11 @@ EXAMPLE:</p>
 )
 </code></pre>
 
-<h3>Payment</h3>
+<h3>Оплата</h3>
 
 <h4>api/payment/address</h4>
 
-<p>DESCRIPTION:set payment address for this session<br />
+<p>ОПИСАНИЕ: установить адрес оплаты для этого сеанса<br />
 PARAMS:<br />
 api_token<br />
 DATA:<br />
@@ -472,7 +470,7 @@ address_1  <br />
 city  <br />
 country_id  <br />
 zone_id<br />
-EXAMPLE:</p>
+ПРИМЕР:</p>
 
 
 <pre><code>session.post(
@@ -491,11 +489,11 @@ EXAMPLE:</p>
 
 <h4>api/payment/methods</h4>
 
-<p>DESCRIPTION:returning avaliable payment methods<br />
+<p>ОПИСАНИЕ: возврат доступных способов оплаты<br />
 PARAMS:<br />
 api_token<br />
 DATA:<br />
-EXAMPLE:</p>
+ПРИМЕР:</p>
 
 
 <pre><code>session.post(
@@ -506,12 +504,12 @@ EXAMPLE:</p>
 
 <h4>api/payment/method</h4>
 
-<p>DESCRIPTION:setting payment method of avaliable in api/payment/methods<br />
+<p>ОПИСАНИЕ: настройка способа оплаты доступна в api/payment/methods<br />
 PARAMS:<br />
 api_token<br />
 DATA:<br />
 payment_method<br />
-EXAMPLE:</p>
+ПРИМЕР:</p>
 
 
 <pre><code>session.post(
