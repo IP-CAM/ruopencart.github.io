@@ -1,46 +1,46 @@
 ---
 layout: ru-ru/default
-title: "Orders - OpenCart Documentation"
+title: "Заказы - Документация OpenCart"
 permalink: ru-ru/sale/order/
 ---
-<h1>Orders</h1>
-<h2>Managing orders</h2>
-<p>When a customer goes through checkout, the information on their order is automatically transferred to the Orders section for you to keep track of. In the administration, you can view all of the orders made on their site, manually add orders, or edit the details of existing orders.</p>
-<h2>Viewing order details</h2>
-<p>The Orders section is located under Sales &gt; Orders. On this page, every order ever made from the store is listed in detail.</p>
-<p>The following details are displayed for each order on the list:</p>
+<h1>Заказы</h1>
+<h2>Управление заказами</h2>
+<p>Когда клиент проходит проверку, информация о его заказе автоматически переносится в раздел «Заказы», чтобы Вы могли следить за ним. В администрации вы можете просматривать все заказы, сделанные на их сайте, вручную добавлять заказы или редактировать детали существующих заказов.</p>
+<h2>Просмотр деталей заказа</h2>
+<p>Раздел заказов находится под Продажи &gt; Заказы. На этой странице каждый заказ, когда-либо сделанный из магазина, перечислен подробно.</p>
+<p>Следующие данные отображаются для каждого заказа в списке:</p>
 <ul>
-  <li><strong>Order ID</strong>: a number assigned to an order by OpenCart during the checkout confirmation</li>
-  <li><strong>Customer</strong>: the name of the customer that made the order.</li>
-  <li><strong>Status</strong>: update of the status of the order. After the order is initially created the status will be &quot;Pending&quot;. The default options are Missing Orders, Canceled, Canceled Reversal, Chargeback, Complete, Denied, Expired, Failed, Pending, Processed, Processing, Refunded, Reversed, Shipped, and Voided.</li>
-  <li><strong>Total</strong>: the total price of the order.</li>
-  <li><strong>Date Added</strong></li>
-  <li><strong>Date Modified</strong></li>
+  <li><strong>Номер заказа</strong>: номер, присвоенный заказу OpenCart при подтверждении заказа</li>
+  <li><strong>Клиент</strong>: имя клиента, сделавшего заказ.</li>
+  <li><strong>Статус</strong>: обновление статуса заказа. После первоначального создания заказа статус будет &quot;В ожидании&quot;. Параметры по умолчанию: «Отсутствующие заказы», «Отмененный», «Отмененный возврат», «Возвратный платеж», «Завершено», «Отклонено», «Просрочено», «Не выполнено», «Ожидание», «Обработано», «Обработка», «Возврат», «Отменено», «Отправлено» и «Отменено».</li>
+  <li><strong>Итог</strong>: общая стоимость заказа.</li>
+  <li><strong>Дата добавления</strong></li>
+  <li><strong>Дата изменения</strong></li>
 </ul>
 <p><strong><img src="image/sales-order-list.png" alt="orders" class="img-thumbnail" /></strong></p>
-<p>With the orders included in the list, there is an option to edit, insert, delete, search, or print an invoice of an order.</p>
-<h3>Searching for an order</h3>
-<p>The &quot;Filter&quot; button under Action helps you find orders based on the information specified in the blanks. It can help you locate orders by date added or customer. The &quot;Filter&quot; cannot search for orders by product purchased yet. For more information on the <a href="en-gb/catalog/filter/">Filter </a>tool, see Filter.</p>
-<h2>Manually adding/modifying an order</h2>
-<p>Customer Orders will be automatically updated to the Order section after a customer confirms checkout. Though it is automatically updated, you may want to edit or add orders manually to add new information such as a gift-voucher, or add reward points. To manually add a new order, click the &quot;Insert&quot; button. To modify a pre-existing order, click &quot;Edit&quot; under Action.</p>
-<h3>Customer details</h3>
-<p>The first section for modifying an order is called Customer Details. Typing in a customer name that has already made an account with the store will auto-complete the form by bringing up their information to fill in the blanks.</p>
+<p>С учетом заказов, включенных в список, есть возможность редактировать, вставлять, удалять, искать или распечатывать счет-фактуру заказа.</p>
+<h3>Поиск заказа</h3>
+<p>Кнопка &quot;Фильтр&quot; в разделе Действие помогает найти заказы на основе информации, указанной в пробелах. Это может помочь Вам найти заказы по дате добавления или клиента. &quot;Фильтр&quot; не могу искать заказы по продукту, купленному еще. Для получения дополнительной информации о <a href="ru-ru/catalog/filter/">Фильтр</a> см. Фильтр.</p>
+<h2>Добавление / изменение заказа вручную</h2>
+<p>Заказы клиентов будут автоматически обновляться в разделе «Заказы» после того, как клиент подтвердит заказ. Хотя он автоматически обновляется, Вы можете отредактировать или добавить заказы вручную, чтобы добавить новую информацию, такую как подарочный сертификат, или добавить бонусные баллы. Чтобы вручную добавить новый заказ, нажмите кнопку &quot;Вставить&quot;. Чтобы изменить уже существующий заказ, нажмите &quot;Редактировать&quot; под Действием.</p>
+<h3>Данные клиента</h3>
+<p>Первый раздел для изменения заказа называется Данные клиента. При вводе имени клиента, который уже создал учетную запись в магазине, автозаполнение формы будет выполнено автоматически, введя их данные для заполнения пробелов.</p>
 <p class="text-center"><img src="image/sales-order-customer.png" alt="orders customer details" class="img-thumbnail" /></p>
-<h3>Payment details</h3>
-<p>If an address has been added to the customer, select their address option under &quot;Choose Address&quot;. Otherwise the customer address will need to be manually filled into the form.</p>
+<h3>Детали платежа</h3>
+<p>Если адрес был добавлен к клиенту, выберите его адрес в разделе &quot;Выберите адрес&quot;. В противном случае адрес клиента необходимо будет заполнить вручную в форме.</p>
 <p class="text-center"><img src="image/sales-order-payment.png" alt="orders payment details" class="img-thumbnail" /></p>
-<h3>Shipping details</h3>
-<p>This section tracks the shipping address for this particular order. If the shipping and payment address are the same, copy and paste the information above when adding it manually.</p>
-<h3>Products</h3>
-<p>In &quot;Choose Product&quot;, begin typing the product name. A drop down list will appear with products containing that name. Selecting a product from this list will bring up specific product options for this order.</p>
+<h3>Отгрузочные реквизиты</h3>
+<p>В этом разделе отслеживается адрес доставки для этого конкретного заказа. Если адрес доставки и оплаты совпадают, скопируйте и вставьте указанную выше информацию при добавлении вручную.</p>
+<h3>Продукты</h3>
+<p>В &quot;Выберите продукт&quot;, начните вводить название продукта. Появится выпадающий список с продуктами, содержащими это имя. Выбор продукта из этого списка приведет к появлению определенных вариантов продукта для этого заказа.</p>
 <p class="text-center"><img src="image/sales-order-product.png" alt="orders products" class="img-thumbnail" /></p>
-<h3>Vouchers</h3>
-<p>If a customer wants to add a gift voucher order, it will ask them for the following information.</p>
+<h3>Подарочный сертификат</h3>
+<p>Если клиент хочет добавить заказ подарочной карты, он запросит у него следующую информацию.</p>
 <p class="text-center"><img src="image/sales-order-voucher.png" alt="orders vouchers" class="img-thumbnail" /></p>
-<h3>Totals</h3>
-<p>Under Totals, other contributing payment factors, such as coupons and vouchers, are added/subtracted to the order total.</p>
-<div class="alert alert-danger" role="alert"><i class="fa fa-exclamation-circle"></i> Shipping and payment methods must already be set up to select a method in the order form. Otherwise, there will be nothing to select under Shipping Method and Payment Method.</div>
+<h3>Итого</h3>
+<p>В разделе Итоги другие факторы оплаты, такие как купоны и ваучеры, добавляются / вычитаются из общей суммы заказа.</p>
+<div class="alert alert-danger" role="alert"><i class="fa fa-exclamation-circle"></i> Способы доставки и оплаты уже должны быть настроены для выбора метода в форме заказа. В противном случае ничего не будет выбрано в разделе «Способ доставки и способ оплаты».</div>
 <p class="text-center"><img src="image/sales-order-total.png" alt="orders totals" class="img-thumbnail" /></p>
-<p>The sections seen above (such as Coupon, Voucher, Rewards) are extensions that were enabled specifically for this form. There is an option to customize the order details included in the totals by editing, uninstalling, or enabling specific order total extensions.</p>
-<h2>Printing invoices</h2>
-<p>To print an invoice, go back to the Orders page under Sales &gt; Orders. Above the order list on the top right corner is the &quot;Print Invoice&quot; button. Select the order to be printed, and click &quot;Print Invoice&quot;. This action will direct you to a printable page of the invoice. The invoice can be printed out and included in with the shipping.</p>
+<p>Разделы, показанные выше (такие как Купон, Ваучер, Награды), являются расширениями, которые были включены специально для этой формы. Существует возможность настроить детали заказа, включенные в итоги, путем редактирования, удаления или включения конкретных расширений заказа.</p>
+<h2>Печать счетов</h2>
+<p>Чтобы распечатать счет, вернитесь на страницу «Заказы» под Продажи &gt; Заказы. Над списком заказов в правом верхнем углу находится кнопка &quot;Распечатать счет&quot;. Выберите заказ для печати и нажмите &quot;Распечатать счет&quot;. Это действие направит Вас на распечатанную страницу счета. Счет может быть распечатан и включен в комплект поставки.</p>
