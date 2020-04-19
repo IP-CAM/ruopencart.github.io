@@ -1,38 +1,38 @@
 ---
 layout: ru-ru/default
-title: "Loading Files - OpenCart Documentation"
+title: "Загрузка файлов - Документация OpenCart"
 permalink: ru-ru/developer/loading/
 ---
-<h1>Loading files in the controller</h1>
-<p>In OpenCart&#39;s MVC-L framework, your module&#39;s controller is the glue connecting your language, model, and template files to each other. The controller is responsible for grabbing the text contained in the language file and making them accessible as PHP variables in the view&#39;s template file. In addition to inheriting the functions available in the controller&#39;s parent class, Controller, you can also load any of OpenCart&#39;s default model files and their functions in the controller. In this documentation, we will show the PHP code needed to load language and model files and their functions.</p>
-<h2>Loading the language file</h2>
-<p>The controller brings the text stored in the language file, and turns them into variables that can be echoed in the template file to displayed text. This is especially useful for managing translations of your module. Instead of modifying your .tpl file every time you have a new translation to change each piece of text inside, you just need to modify the text in your language file, and the variables will remain the same in the controller and the template.</p>
-<p>The piece of code below will load the language file inside in your module&#39;s controller. Inside the parentheses you will need to include the path to the language file from inside the language folder.</p>
+<h1>Загрузка файлов в контроллер</h1>
+<p>В платформе MVC-L OpenCart контроллер Вашего модуля является связующим звеном, соединяющим файлы Вашего языка, модели и шаблона друг с другом. Контроллер отвечает за захват текста, содержащегося в языковом файле, и обеспечение его доступности в качестве переменных PHP в файле шаблона представления. Помимо наследования функций, доступных в родительском классе контроллера, Controller, вы также можете загрузить любой из файлов модели OpenCart по умолчанию и их функции в контроллер. В этой документации мы покажем код PHP, необходимый для загрузки файлов языка и модели и их функций.</p>
+<h2>Загрузка языкового файла</h2>
+<p>Контроллер выводит текст, сохраненный в языковом файле, и превращает их в переменные, которые можно отобразить в файле шаблона, в отображаемый текст. Это особенно полезно для управления переводами Вашего модуля. Вместо того, чтобы изменять Ваш файл .tpl (.twig) каждый раз, когда у Вас есть новый перевод для изменения каждого фрагмента текста внутри, Вам просто нужно изменить текст в Вашем языковом файле, и переменные в контроллере и шаблоне останутся такими же.</p>
+<p>Кусок кода ниже загрузит языковой файл внутри контроллера Вашего модуля. В скобках необходимо указать путь к языковому файлу из языковой папки.</p>
 <div class="code"><code>$this-&gt;load-&gt;language(&#39;module/my_module&#39;);</code></div>
-<p>It is important to remember that the admin controller will only load the admin language file, but not the catalog language file; and likewise the catalog controller will only load the catalog language file. Once the language file is loaded into the controller, you can store its text into a php variable with the use of the $data array. The $this-&gt;language-&gt;get(&#39;text&#39;) will grab the text from the $_[&#39;text&#39;] variable inside of the language file.</p>
+<p>Важно помнить, что контроллер администратора будет загружать только языковой файл администратора, но не языковой файл каталога; и аналогично контроллер каталога будет загружать только языковой файл каталога. Как только языковой файл загружен в контроллер, вы можете сохранить его текст в переменной php с помощью массива $data. $this-&gt;language-&gt;get(&#39;text&#39;) возьмет текст из $_[&#39;text&#39;] переменной внутри языкового файла.</p>
 <div class="code"><code>$this-&gt;data[&#39;text&#39;] = $this-&gt;language-&gt;get(&#39;text&#39;);</code></div>
-<p>The $this-&gt;language-&gt;get(&#39;text&#39;) will grab the text from the $_[&#39;text&#39;] variable inside of the language file we just loaded above. Every element of the data array will be converted into its own variable. The $data[&#39;text&#39;] will become $text for the template file inside view. The $text variable can be echoed in the view&#39;s .tpl file wherever needed:</p>
+<p>$this-&gt;language-&gt;get(&#39;text&#39;) возьмет текст из $_[&#39;text&#39;] переменная внутри языкового файла, который мы только что загрузили. Каждый элемент массива данных будет преобразован в свою переменную. $data[&#39;text&#39;] станет $text для файла шаблона изнутри. Переменная $text может быть отражена в файле view&#39;s .tpl где нужно:</p>
 <div class="code"><code>&lt;p&gt;&lt;?php echo $text; ?&gt;&lt;/p&gt;</code></div>
-<h3>Setting the heading title</h3>
-<p>The following code will set text from the language file as the heading title of the page:</p>
+<h3>Установка заголовка тайтла</h3>
+<p>Следующий код установит текст из языкового файла в качестве заголовка страницы:</p>
 <div class="code"><code>$this-&gt;document-&gt;setTitle($this-&gt;language-&gt;get(&#39;heading_title&#39;));</code></div>
-<p>This will grab the text for the variable $_[&#39;heading_title&#39;] stored in the module&#39;s language file.</p>
-<div class="alert alert-success" role="alert"><i class="fa  fa-check-circle"></i> If you need the text to be stored as a php session variable, use $this-&gt;session-&gt;data[&#39;text&#39;] instead of $this-&gt;data[&#39;text&#39;].</div>
-<h2>Loading model files</h2>
-<p>Loading model files into your controller file will allow your module to utilize OpenCart&#39;s built-in functions. The functions inside the model files interact with the store&#39;s database and to add/pull important information for your module. We recommended that you to take advantage of these functions, rather than making your own DB queries. Take some time to explore the model folders in both the admin and catalog files, to see which files may benefit your module&#39;s purpose. For example, if your module needs to pull product information from the store&#39;s database, it will be useful to load the admin/model/catalog/products.php file, since it already has a multitude of helpful, built-in functions that interact with the store&#39;s products in the database.</p>
-<p>Your module can load any model file its controller file using the following code, granted that they are in the same admin or catalog folder as the controller.</p>
+<p>Это получит текст для переменной $_[&#39;heading_title&#39;] хранится в модуле языкового файла.</p>
+<div class="alert alert-success" role="alert"><i class="fa fa-check-circle"></i> Если Вам нужно сохранить текст как переменную сеанса php, используйте $this-&gt;session-&gt;data[&#39;text&#39;] вместо того $this-&gt;data[&#39;text&#39;].</div>
+<h2>Загрузка файлов моделей</h2>
+<p>Загрузка файлов модели в файл Вашего контроллера позволит Вашему модулю использовать встроенные функции OpenCart. Функции внутри файлов модели взаимодействуют с базой данных магазина и добавляют/извлекают важную информацию для Вашего модуля. Мы рекомендуем Вам воспользоваться этими функциями, а не делать собственные запросы к БД. Потратьте некоторое время на изучение папок модели в файлах администратора и каталога, чтобы увидеть, какие файлы могут принести пользу Вашему модулю. Например, если Вашему модулю нужно извлечь информацию о продукте из базы данных магазина, будет полезно загрузить файл admin/model/catalog/products.php, так как он уже имеет множество полезных встроенных функций, которые взаимодействуют с товары магазина в базе.</p>
+<p>Ваш модуль может загрузить любой файл модели в свой файл контроллера, используя следующий код, при условии, что они находятся в той же папке администратора или каталога, что и контроллер.</p>
 <div class="code"><code>$this-&gt;load-&gt;model(&#39;setting/setting&#39;);</code></div>
-<p>You will need to specify the path to the file you want to load from the admin folder within the parentheses. The code above will load the settings class so we have access to the functions within the ModelSettingSetting class in our model&#39;s controller file. Use the following format in your code to call a function from a loaded model file:</p>
+<p>Вам нужно будет указать путь к файлу, который Вы хотите загрузить из папки администратора в скобках. Приведенный выше код загрузит класс настроек, поэтому у нас есть доступ к функциям внутри класса ModelSettingSetting в файле контроллера нашей модели. Используйте следующий формат в Вашем коде для вызова функции из загруженного файла модели:</p>
 <div class="code"><code>$this-&gt;model_setting_setting-&gt;editSetting(&#39;my_module&#39;, $this-&gt;request-&gt;post);</code></div>
-<p>The underscores refer to the file designations for model/setting/setting.php. If you have a model file included for your module your code would follow the format mentioned above, since the model file is uploaded to model folder.</p>
+<p>Подчеркивания относятся к обозначениям файлов для модели/setting/setting.php. Если у Вас есть файл модели для Вашего модуля, Ваш код будет соответствовать указанному выше формату, так как файл модели загружается в папку модели.</p>
 <div class="code"><code>$this-&gt;load-&gt;model(module/my_module.php);<br />
   $this-&gt;model_module_my_module-&gt;myFunction();</code></div>
-<p>The code above will load the my_module.php stored in admin/model/module/my_module.php.</p>
-<div class="alert alert-info" role="alert"><i class="fa fa-info-circle"></i> Instead of using spaces in file names for your module, use underscores.</div>
-<h2>Loading template files</h2>
-<p>In the controller you will need to load your module&#39;s template file in view. To do so, set $this-&gt;template as so:</p>
+<p>Приведенный выше код загрузит файл my_module.php, хранящийся в admin/model/module/my_module.php.</p>
+<div class="alert alert-info" role="alert"><i class="fa fa-info-circle"></i> Вместо использования пробелов в именах файлов для Вашего модуля используйте подчеркивание.</div>
+<h2>Загрузка файлов шаблона</h2>
+<p>В контроллере Вам нужно будет загрузить файл шаблона Вашего модуля в поле зрения. Для этого установите $this-&gt;template как так:</p>
 <div class="code"><code>$this-&gt;template = &#39;module/my_module.tpl&#39;;</code></div>
-<h2>Loading library files</h2>
-<p>The OpenCart directory contains a collection of library files that can be accessed by both the admin and catalog controller files. These files are located under system/library in the root folder of the OpenCart store. In the code examples seen inloading the language file, both $this-&gt;load-&gt;language and $this-&gt;document give access to functions within the language.php and document.php files in the library folder. If you want to access a function in a library file you need to call it using $this-&gt;[insert library file name]-&gt;function() in the controller class.</p>
-<h2>Additional information</h2>
-<p>For more information on the concept of how the controller behaves within the MVC framework or in the context of developing a module for OpenCart, see the <a href="en-gb/developer/loading/">Introduction</a> and <a href="en-gb/developer/module/">Developing Modules</a>. To see how loaded files can be utilized in a basic module, see the DIY Module from <a href="http://opencart.hostjars.com/">HostJars</a></p>
+<h2>Загрузка файлов библиотеки</h2>
+<p>Каталог OpenCart содержит коллекцию файлов библиотеки, к которым могут обращаться файлы как администратора, так и контроллера каталога. Эти файлы находятся в папке system/library в корневой папке магазина OpenCart. В примерах кода видно загрузку языкового файла, оба $this-&gt;load-&gt;language и $this-&gt;document предоставить доступ к функциям в файлах language.php и document.php в папке библиотеки. Если Вы хотите получить доступ к функции из файла библиотеки, Вам нужно вызвать ее с помощью $this-&gt;[insert library file name]-&gt;function() в классе контроллера.</p>
+<h2>Дополнительная информация</h2>
+<p>Для получения дополнительной информации о концепции поведения контроллера в рамках MVC или в контексте разработки модуля для OpenCart см. <a href="ru-ru/developer/loading/">Вступление</a> и <a href="ru-ru/developer/module/">Разработка модулей</a>. Чтобы увидеть, как загруженные файлы могут быть использованы в базовом модуле, см. DIY-модуль из <a href="http://opencart.hostjars.com/">HostJars</a></p>
