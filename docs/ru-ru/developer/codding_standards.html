@@ -11,20 +11,96 @@ permalink: ru-ru/developer/codding_standards/
 <h2>Теги PHP</h2>
 <p>Короткие открывающие теги PHP и ASP-теги не поддерживаются. Символы должны быть строчными.</p>
 <code>&lt;?php</code>
-<p>Все файлы PHP должны включать закрывающий тег для версий до 2.0. Файлы PHP в версии 2.0 и выше больше не будут иметь
-закрывающего тега.</p>
+<p>Все файлы PHP должны включать закрывающий тег для версий до 2.0. Файлы PHP в версии 2.0 и выше больше не будут иметь закрывающего тега.</p>
 <code>?\&gt;</code>
 <h2>Отступы</h2>
 <p>Файлы PHP должны иметь отступ с помощью символа TAB. 4 пробела не поддерживаются.</p>
-<p>HTML в файлах шаблонов (.twig) должен иметь отступ с использованием 2 пробелов, а не 4 пробелов или TABS. JavaScript
-должен иметь отступ с использованием символа TAB.</p>
-<h2>Пробелы</h2>
+<p>HTML в файлах шаблонов (.twig) должен иметь отступ с использованием 2 пробелов, а не 4 пробелов или TABS. JavaScript должен иметь отступ с использованием символа TAB.</p>
+<h2>Интервал</h2>
 <p>IF, WHILE, FOR и т.д. должны иметь пробел до и после скобок.</p>
 <p class="correct">Правильный: <code>if () {</code></p>
 <p class="incorrect">Неправильный: <code>if(){</code></p>
-<p></p>
-<p></p>
-<p></p>
-<p></p>
-<h2></h2>
-<p></p>
+<p>ELSE и т.д. должны иметь пробел после и до фигурных скобок</p>
+<p class="correct">Правильный: <code>} else {</code></p>
+<p class="incorrect">Неправильный: <code>}else{</code></p>
+<p>Приведение типов НЕ имеет пробела перед переменной</p>
+<p class="correct">Правильный: <code>(int)$var</code></p>
+<p class="incorrect">Неправильный: <code>(int) $var</code></p>
+<p>Установка переменной всегда должна иметь пробел до и после знака равенства</p>
+<p class="correct">Правильный: <code>$var = 1;</code></p>
+<p class="incorrect">Неправильный: <code>$var=1;</code></p>
+<h2>Пробелы</h2>
+<p>После любого кода, но перед новой строкой - не должно быть пробелов. То же самое верно для пустой строки.</p>
+<p>После закрывающего тега PHP крайне важно удалить пробелы.</p>
+<h2>Новые Строки</h2>
+<p>Открывающиеся фигурные скобки не переходят на новую строку, они всегда будут иметь пробел и будут на одной строке.</p>
+<p>1 True Brace Style (1TBS)</p>
+<p class="correct">Правильный:</p>
+<p><code>if ($my_example == 1) {
+
+class ModelExampleExample extends Model {
+
+public function addExample() {
+
+} else {</code></p>
+<p class="incorrect">Неправильный:</p>
+<p><code>if ($my_example == 1)
+{
+
+class ModelExampleExample extends Model
+{
+
+public function addExample()
+{
+
+}
+else
+{</code></p>
+<h2>Именование файла</h2>
+<p>Все файлы должны быть в нижнем регистре и слова должны быть разделены подчеркиванием.</p>
+<h2>Именование класса и метода</h2>
+<p>Имена классов и методов должны быть верблюжьими (camel case).</p>
+<p class="correct">Правильный:</p>
+<p><code>class ModelExampleExample extends Model
+
+public function addExample()</code></p>
+<p class="incorrect">Неправильный:</p>
+<p><code>class model_exampleexample extends Model
+
+public function add_example()</code></p>
+<p>Область действия метода всегда должна быть приведена.</p>
+<p class="correct">Правильный:</p>
+<p><code>public function addExample()</code></p>
+<p class="incorrect">Неправильный:</p>
+<p><code>function addExample()</code></p>
+<h2>Назначение функций PHP (помощников)</h2>
+<p>Имена вспомогательных функций должны быть в нижнем регистре и подчеркивания, используемых для разделения слов.</p>
+<h2>Именование переменных PHP</h2>
+<p>Переменные PHP должны быть в нижнем регистре и подчеркивания используются для разделения слов.</p>
+<p class="correct">Правильный:</p>
+<p><code>$var = 123;
+$new_var = 12345;</code></p>
+<p class="incorrect">Неправильный:</p>
+<p><code>$Var = 123;
+$newVar = 12345;</code></p>
+<h2>Пользовательские константы</h2>
+<p>Пользовательские константы устанавливаются в верхнем регистре.</p>
+<p class="correct">Правильный:</p>
+<p><code>define('MY_VAR', 'My constant string value');</code></p>
+<p class="incorrect">Неправильный:</p>
+<p><code>define('my_var', 'My constant string value');</code></p>
+<h2>Константы PHP</h2>
+<p>Эти типы констант (true, false, null) устанавливаются в нижнем регистре</p>
+<p class="correct">Правильный:</p>
+<p><code>$my_var = true;</code></p>
+<p class="incorrect">Неправильный:</p>
+<p><code>$my_var = TRUE;</code></p>
+<h2>Правила HTML/CSS</h2>
+<p>Имена классов и идентификаторы должны быть с дефисами и не использовать подчеркивание</p>
+<p class="correct">Правильный:</p>
+<p><code>class="my-class"</code></p>
+<p class="incorrect">Неправильный:</p>
+<p><code>class="my_class"</code></p>
+<h2>PHP CodeSniffer</h2>
+<p>Здесь есть стандарт PHP_CodeSniffer: <a href="https://github.com/opencart/opencart/tree/master/tests/phpcs/OpenCart" target="_blank">https://github.com/opencart/opencart/tree/master/tests/phpcs/OpenCart</a></p>
+<p><code>phpcs --standard=phpcs.xml opencart</code></p>
