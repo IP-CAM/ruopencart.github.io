@@ -96,3 +96,71 @@ path=&quot;system/engine/action.php|system/engine/loader.php|system/library/conf
     &lt;/file&gt;
 &lt;/modification&gt;
 </code></pre>
+<h4>Добавить</h4>
+<p>Код для замены поиска.</p>
+<h5>Разрешенные атрибуты</h5>
+<ul>
+  <li><code>trim="(true|false)"</code></li>
+  <li><code>position="(replace|before|after)"</code></li>
+  <li><code>offset="(number)"</code></li>
+</ul>
+<p>(позиция примечания не может быть использована, если регулярное выражение установлено в true в атрибуте поиска).</p>
+<p>Пример:</p>
+<pre><code>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;modification&gt;
+    &lt;name&gt;Modification Default&lt;/name&gt;
+    &lt;version&gt;1.0&lt;/version&gt;
+    &lt;author&gt;OpenCart Ltd&lt;/author&gt;
+    &lt;link&gt;http://www.opencart.com&lt;/link&gt;
+    &lt;file path=&quot;catalog/controller/common/home.php&quot;&gt;
+        &lt;operation&gt;
+            &lt;search trim=&quot;true|false&quot;&gt;&lt;![CDATA[
+            $data[&#039;column_left&#039;] = $this-&gt;load-&gt;controller(&#039;common/column_left&#039;);
+            ]]&gt;&lt;/search&gt;
+            &lt;add position=&quot;replace|before|after&quot; trim=&quot;true|false&quot; offset=&quot;2&quot;&gt;&lt;![CDATA[
+            test123
+            ]]&gt;&lt;/add&gt;
+        &lt;/operation&gt;
+    &lt;/file&gt;
+&lt;/modification&gt;
+</code></pre>
+<h4>Regex</h4>
+<h5>Разрешенные атрибуты</h5>
+<ul>
+  <li><code>limit="(number)"</code></li>
+</ul>
+<p>Пример:</p>
+<pre><code>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;modification&gt;
+    &lt;name&gt;Regex Example&lt;/name&gt;
+    &lt;version&gt;1.0&lt;/version&gt;
+    &lt;author&gt;OpenCart Ltd&lt;/author&gt;
+    &lt;link&gt;http://www.opencart.com&lt;/link&gt;
+    &lt;file path=&quot;system/{engine,library}/{action,loader,config,language}*.php&quot;&gt;
+        &lt;operation&gt;
+            &lt;search regex=&quot;true&quot; limit=&quot;1&quot;&gt;&lt;![CDATA[
+            ~(require|include)(_once)?\(([^)]+)~
+            ]]&gt;&lt;/search&gt;
+            &lt;add&gt;&lt;![CDATA[
+            $1$2(modification($3)
+            ]]&gt;&lt;/add&gt;
+        &lt;/operation&gt;
+    &lt;/file&gt;
+</code></pre>
+<p>Если Вы используете регулярное выражение, Вы не можете использовать атрибуты position, trim или offset, поскольку они обрабатываются кодом регулярного выражения, который Вы пишете. Атрибут limit все еще доступен.</p>
+<p>Если, например, Вы хотите изменить 3-й 'foo' на 'bar' в следующей строке:</p>
+<pre><code>
+  lorem ifoopsum foo lor foor ipsum foo dolor foo
+  ^1      ^2      ^3         ^4        ^5
+</code></pre>
+<p>Запустить:</p>
+<pre><code>s/\(.\{-}\zsfoo\)\{3}/bar/</code></pre>
+<p>Результат:</p>
+<pre><code>
+  lorem ifoopsum foo lor barr ipsum foo dolor foo
+  ^1      ^2      ^3=bar     ^4        ^5
+</code></pre>
+<p>Вы можете найти больше информации о PHP-функции регулярного выражения, которую использует OCMOD, можно найти здесь: <a href="http://hk2.php.net/manual/en/function.preg-replace.php" target="_blank">http://hk2.php.net/manual/en/function.preg-replace.php</a></p>
+<p>Более подробную информацию о регулярном выражении можно найти здесь: <a href="http://www.regular-expressions.info" target="_blank">http://www.regular-expressions.info</a></p>
