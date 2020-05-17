@@ -1,0 +1,150 @@
+---
+layout: ru-ru/default
+title: "Движок - Документация OpenCart"
+permalink: ru-ru/developer/engine/
+---
+<h1>Движок</h1>
+<h2>Регистрация</h2>
+<hr>
+<p>Базовый контейнерный класс только с методами set и get для хранения объектов библиотеки.</p>
+<p>Нет необходимости использовать класс реестра напрямую с контроллерами, как это доступно через контроллер и модели.</p>
+<p>Пример</p>
+<p><code>$this->load->library('cache');
+
+$this->registry->get('cache')->get('products');
+
+// is the same as
+$this->cache->get('products');</code></p>
+<h2>Методы</h2>
+<hr>
+<p><code>object get(string $key)</code></p>
+<table>
+  <caption>Параметры</caption>
+  <thead>
+    <tr>
+      <td>Таблицы</td>
+      <td>Тип</td>
+      <td>Описание</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>$key</code></td>
+      <td><code>string</code> (строка)</td>
+      <td>получает объект библиотеки по ключу</td>
+    </tr>
+  </tbody>
+</table>
+<p>Возвращает</p>
+<p>возвращает объект библиотеки по ключу</p>
+<p><code>void set(string $key, object $value)</code></p>
+<p>Устанавливает новую библиотеку</p>
+<table>
+  <caption>Параметры</caption>
+  <thead>
+    <tr>
+      <td>Таблицы</td>
+      <td>Тип</td>
+      <td>Описание</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>$key</code></td>
+      <td><code>string</code> (строка)</td>
+      <td>получает объект библиотеки по ключу</td>
+    </tr>
+    <tr>
+      <td><code>$value</code></td>
+      <td><code>object</code> (объект)</td>
+      <td>получает объект библиотеки по ключу</td>
+    </tr>
+  </tbody>
+</table>
+<p><code>boolean has(string $key)</code></p>
+<p>Проверяет, использует ли библиотека ключ</p>
+<table>
+  <caption>Параметры</caption>
+  <thead>
+    <tr>
+      <td>Таблицы</td>
+      <td>Тип</td>
+      <td>Описание</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>$key</code></td>
+      <td><code>string</code> (строка)</td>
+      <td>получает объект библиотеки по ключу</td>
+    </tr>
+  </tbody>
+</table>
+<p>Возвращает</p>
+<p>Возвращает, если используется ключ библиотеки.</p>
+<h2>Загрузчик</h2>
+<hr>
+<ul>
+  <li>
+    <code>__construct(string $registry)</code>
+    <table>
+      <caption>Параметры</caption>
+      <thead>
+        <tr>
+          <td>Таблицы</td>
+          <td>Тип</td>
+          <td>Описание</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>$registry</code></td>
+          <td><code>object</code> (объект)</td>
+          <td>регистрация объекта</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <code>controller(string $key, object $value)</code> - загружает запрошенный контроллер в зарегистрированный класс.
+    <table>
+      <caption>Параметры</caption>
+      <thead>
+        <tr>
+          <td>Таблицы</td>
+          <td>Тип</td>
+          <td>Описание</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>$registry</code></td>
+          <td><code>object</code> (объект)</td>
+          <td>регистрация объекта</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li><code>model(string $key)</code> - загружает запрошенный контроллер в зарегистрированный класс.</li>
+  <li><code>view(string $key, array $value)</code> - загружает запрошенное представление и возвращает вывод.</li>
+  <li><code>library(string $key)</code> - удаляет кеш по ключу</li>
+  <li><code>helper(string $key)</code> - удаляет кеш по ключу</li>
+  <li><code>config(string $key)</code> - удаляет кеш по ключу</li>
+  <li><code>language(string $key)</code> - удаляет кеш по ключу</li>
+</ul>
+<p>Класс загрузчика предназначен для загрузки различных компонентов платформы OpenCart.</p>
+<h2>Действие</h2>
+<hr>
+<p>Классы действий используются для загрузки контроллеров.</p>
+<p>Пример</p>
+<p><code>$action = new Action('common/home');
+$action->execute($this->registry);</code></p>
+<p><code>__construct</code></p>
+<p>Конструктор.</p>
+<p><code>__construct(string $registry)</code></p>
+<p><code>execute</code></p>
+<p>Вызывает запрошенный контроллер. Требуется регистрация, чтобы его можно было передать в контроллер.</p>
+<p><code>execute(object $registry) : mixed</code></p>
+<h2>Событие</h2>
+<hr>
+<p></p>
