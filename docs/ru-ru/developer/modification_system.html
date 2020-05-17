@@ -1,7 +1,7 @@
 ---
 layout: ru-ru/default
 title: "Система Модификаций - Документация OpenCart"
-permalink: ru-ru/developer/
+permalink: ru-ru/developer/modification_system/
 ---
 <h1>Система Модификаций</h1>
 <p>OCMOD - это система, которая позволяет владельцам магазинов изменять их, загружая сжатый файл, содержащий файлы XML, SQL и PHP.</p>
@@ -38,23 +38,29 @@ permalink: ru-ru/developer/
 <pre><code>
   &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
   &lt;modification&gt;
-  &lt;name&gt;Modification Default&lt;/name&gt;
-  &lt;version&gt;1.0&lt;/version&gt;
-  &lt;author&gt;OpenCart Ltd&lt;/author&gt;
-  &lt;link&gt;http://www.opencart.com&lt;/link&gt;
-  &lt;file path=&quot;catalog/controller/common/home.php&quot;&gt;
-  &lt;operation&gt;
-  &lt;search&gt;
-  &lt;![CDATA[
-  $data[&#039;column_left&#039;] = $this-&gt;load-&gt;controller(&#039;common/column_left&#039;);
-  ]]&gt;
-  &lt;/search&gt;
-  &lt;add position=&quot;replace&quot;&gt;
-  &lt;![CDATA[
-  test123
-  ]]&gt;
-  &lt;/add&gt;
-  &lt;/operation&gt;
-  &lt;/file&gt;
+    &lt;name&gt;Modification Default&lt;/name&gt;
+    &lt;version&gt;1.0&lt;/version&gt;
+    &lt;author&gt;OpenCart Ltd&lt;/author&gt;
+    &lt;link&gt;http://www.opencart.com&lt;/link&gt;
+    &lt;file path=&quot;catalog/controller/common/home.php&quot;&gt;
+      &lt;operation&gt;
+        &lt;search&gt;
+          &lt;![CDATA[
+              $data[&#039;column_left&#039;] = $this-&gt;load-&gt;controller(&#039;common/column_left&#039;);
+              ]]&gt;
+        &lt;/search&gt;
+        &lt;add position=&quot;replace&quot;&gt;
+          &lt;![CDATA[
+              test123
+              ]]&gt;
+        &lt;/add&gt;
+      &lt;/operation&gt;
+    &lt;/file&gt;
   &lt;/modification&gt;
 </code></pre>
+<h3>Теги</h3>
+<h4>Файл</h4>
+<p>Вы можете установить несколько местоположений файлов, разделив их запятыми. Система модификации использует PHP-функцию glob.</p>
+<a href="http://hk1.php.net/manual/en/function.glob.php" target="_blank">http://hk1.php.net/manual/en/function.glob.php</a>
+<p>Пример:</p>
+<p>Прямой путь к файлу <code></code></p>
