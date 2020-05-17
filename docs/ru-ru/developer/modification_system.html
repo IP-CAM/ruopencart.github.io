@@ -35,26 +35,26 @@ permalink: ru-ru/developer/
 <h2>XML</h2>
 <p>Это файл, который создает виртуальную копию любых файлов, которые требуют изменений. Используйте эту систему вместо перезаписи любых файлов установки по умолчанию. Несколько изменений могут быть применены к одному и тому же файлу.</p>
 <p>Пример файла OCMOD:</p>
-<p><pre><code>
-  <?xml version="1.0" encoding="utf-8"?>
-  <modification>
-    <name>Modification Default</name>
-    <version>1.0</version>
-    <author>OpenCart Ltd</author>
-    <link>http://www.opencart.com</link>
-    <file path="catalog/controller/common/home.php">
-      <operation>
-        <search>
-          <![CDATA[
-              $data['column_left'] = $this->load->controller('common/column_left');
-              ]]>
-        </search>
-        <add position="replace">
-          <![CDATA[
-              test123
-              ]]>
-        </add>
-      </operation>
-    </file>
-  </modification>
-</code></pre></p>
+<pre><code>
+  &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+  &lt;modification&gt;
+  &lt;name&gt;Modification Default&lt;/name&gt;
+  &lt;version&gt;1.0&lt;/version&gt;
+  &lt;author&gt;OpenCart Ltd&lt;/author&gt;
+  &lt;link&gt;http://www.opencart.com&lt;/link&gt;
+  &lt;file path=&quot;catalog/controller/common/home.php&quot;&gt;
+  &lt;operation&gt;
+  &lt;search&gt;
+  &lt;![CDATA[
+  $data[&#039;column_left&#039;] = $this-&gt;load-&gt;controller(&#039;common/column_left&#039;);
+  ]]&gt;
+  &lt;/search&gt;
+  &lt;add position=&quot;replace&quot;&gt;
+  &lt;![CDATA[
+  test123
+  ]]&gt;
+  &lt;/add&gt;
+  &lt;/operation&gt;
+  &lt;/file&gt;
+  &lt;/modification&gt;
+</code></pre>
