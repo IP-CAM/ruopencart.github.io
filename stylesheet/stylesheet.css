@@ -333,3 +333,10 @@ iframe {
     height: 395px;
   }
 }
+
+.correct {
+  color: #A5D6A7;
+}
+.incorrect {
+  color: #EF9A9A;
+}
