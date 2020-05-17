@@ -64,4 +64,35 @@ permalink: ru-ru/developer/modification_system/
 <a href="http://hk1.php.net/manual/en/function.glob.php" target="_blank">http://hk1.php.net/manual/en/function.glob.php</a>
 <p>Пример:</p>
 <p>Прямой путь к файлу <code>&lt;file path=&quot;catalog/controller/common/home.php&quot;&gt;</code></p>
-<p>Использование фигурных скобок позволяет выбрать несколько файлов и не нужно повторять код операции несколько раз <code><file path="system/engine/action.php|system/engine/loader.php|system/library/config.php|system/library/language.php"></code></p>
+<p>Использование фигурных скобок позволяет выбрать несколько файлов и не нужно повторять код операции несколько раз <code>&lt;file
+path=&quot;system/engine/action.php|system/engine/loader.php|system/library/config.php|system/library/language.php&quot;&gt;</code></p>
+<p>также позволяет фигурные скобки <code>&lt;file path=&quot;system/{engine,library}/{action,loader,config,language}*.php&quot;&gt;</code></p>
+<p>Обратите внимание, что все пути к файлам должны начинаться с администратора, каталога или системы. Вы также можете использовать подстановочный знак * для поиска в нескольких каталогах и файлах.</p>
+<h4>Поиск</h4>
+<p>Поиск кода</p>
+<h5>Разрешенные атрибуты</h5>
+<ul>
+  <li><code>trim="(true|false)"</code></li>
+  <li><code>regex="(true|false)"</code></li>
+  <li><code>index="(number)"</code></li>
+</ul>
+<p>Пример:</p>
+<pre><code>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;modification&gt;
+    &lt;name&gt;Modification Default&lt;/name&gt;
+    &lt;version&gt;1.0&lt;/version&gt;
+    &lt;author&gt;OpenCart Ltd&lt;/author&gt;
+    &lt;link&gt;http://www.opencart.com&lt;/link&gt;
+    &lt;file path=&quot;catalog/controller/common/home.php&quot;&gt;
+        &lt;operation&gt;
+            &lt;search trim=&quot;true|false&quot; index=&quot;1&quot;&gt;&lt;![CDATA[
+            $data[&#039;column_left&#039;] = $this-&gt;load-&gt;controller(&#039;common/column_left&#039;);
+            ]]&gt;&lt;/search&gt;
+            &lt;add position=&quot;replace&quot; offset=&quot;1&quot;&gt;&lt;![CDATA[
+            test123
+            ]]&gt;&lt;/add&gt;
+        &lt;/operation&gt;
+    &lt;/file&gt;
+&lt;/modification&gt;
+</code></pre>
