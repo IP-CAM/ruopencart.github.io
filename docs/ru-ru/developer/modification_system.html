@@ -1,0 +1,60 @@
+---
+layout: ru-ru/default
+title: "Система Модификаций - Документация OpenCart"
+permalink: ru-ru/developer/
+---
+<h1>Система Модификаций</h1>
+<p>OCMOD - это система, которая позволяет владельцам магазинов изменять их, загружая сжатый файл, содержащий файлы XML, SQL и PHP.</p>
+<p>Если OCMOD разработан правильно, он может изменить работу пользовательского хранилища OpenCart без изменения каких-либо основных файлов. Это означает, что если модификация удалена, ни один из исходных файлов OpenCart не должен быть восстановлен или исправлен.</p>
+<p>OCMOD основан на системе Qphoria VQMOD.</p>
+<h3>Различия между OCMOD и VQMOD</h3>
+<p>OCMOD был создан как упрощенная урезанная версия VQMOD.</p>
+<p>Основные отличия</p>
+<h4>Имеет</h4>
+<p><code>Replace, Before, After, Regex, Offset, Limit, ignoreif, error</code></p>
+<h4>Отсутствует</h4>
+<p><code>Attributes top, bottom, ibefore, iafter</code></p>
+<p>Вы должны проверить раздел XML документации, чтобы увидеть полный список возможностей OCMODS.</p>
+<p>Домашнюю страницу проекта VQMOD можно найти здесь: <a href="https://github.com/vqmod/vqmod/wiki/Scripting" target="_blank">https://github.com/vqmod/vqmod/wiki/Scripting</a></p>
+<h2>Файлы OCMOD</h2>
+<p>Файлы OCMOD могут быть загружены через администратора opencart в: <code>Расширения / Установщик</code></p>
+<p>Для загрузки файла OCMOD расширение файла должно быть .ocmod.zip. Это сделано для того, чтобы файлы OCMOD не загружались администратору магазина.</p>
+<h3>Файловая структура</h3>
+<p>Пример структуры файла для сжатых файлов OCMOD.</p>
+<ul>
+  <li>
+    upload
+    <p>Все файлы в этом каталоге будут загружены в каталог Вашей установки OpenCart.</p>
+  </li>
+  <li>
+    install.xml
+    <p>Файл модификации XML.</p>
+  </li>
+</ul>
+<p>Вы можете просмотреть документацию для этой системы ниже.</p>
+<h2>XML</h2>
+<p>Это файл, который создает виртуальную копию любых файлов, которые требуют изменений. Используйте эту систему вместо перезаписи любых файлов установки по умолчанию. Несколько изменений могут быть применены к одному и тому же файлу.</p>
+<p>Пример файла OCMOD:</p>
+<p><pre><code>
+  <?xml version="1.0" encoding="utf-8"?>
+  <modification>
+    <name>Modification Default</name>
+    <version>1.0</version>
+    <author>OpenCart Ltd</author>
+    <link>http://www.opencart.com</link>
+    <file path="catalog/controller/common/home.php">
+      <operation>
+        <search>
+          <![CDATA[
+              $data['column_left'] = $this->load->controller('common/column_left');
+              ]]>
+        </search>
+        <add position="replace">
+          <![CDATA[
+              test123
+              ]]>
+        </add>
+      </operation>
+    </file>
+  </modification>
+</code></pre></p>
