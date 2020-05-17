@@ -1,0 +1,52 @@
+---
+layout: ru-ru/default
+title: "Система Расширений - Документация OpenCart"
+permalink: ru-ru/developer/extension_system/
+---
+<h1>Система Расширений</h1>
+<p>В версии 3.0 мы добавили некоторые дополнительные ограничения пути, чтобы устанавливаемые расширения не вызывали проблем при удалении.</p>
+<h3>Система Расширений</h3>
+<h4>Типы Расширений</h4>
+<ul>
+  <li>analytics (аналитика)</li>
+  <li>captcha (капча)</li>
+  <li>dashboard (инфо панель)</li>
+  <li>extension (расширения)</li>
+  <li>feed (каналы)</li>
+  <li>fraud (мошенничество)</li>
+  <li>module (модули)</li>
+  <li>payment (оплата)</li>
+  <li>report (отчеты)</li>
+  <li>shipping (доставка)</li>
+  <li>theme (темы)</li>
+  <li>total (итого)</li>
+</ul>
+<h3>Разрешенные файлы расширений каталогов могут быть записаны в:</h3>
+<h4>Admin</h4>
+<ul>
+  <li>admin/controller/extension/</li>
+  <li>admin/language/</li>
+  <li>admin/model/extension/</li>
+  <li>admin/view/image/</li>
+  <li>admin/view/javascript/</li>
+  <li>admin/view/stylesheet/</li>
+  <li>admin/view/template/extension/</li>
+</ul>
+<h4>Catalog</h4>
+<ul>
+  <li>catalog/controller/extension/</li>
+  <li>catalog/language/</li>
+  <li>catalog/model/extension/</li>
+  <li>catalog/view/javascript/</li>
+  <li>catalog/view/theme/</li>
+</ul>
+<h4>System</h4>
+<ul>
+  <li>system/config/</li>
+  <li>system/library/</li>
+</ul>
+<h4>Image</h4>
+<ul>
+  <li>image/catalog/</li>
+</ul>
+<p><code>$this->load->model('extension/event');$this->load->model('extension/event');</code></p>
