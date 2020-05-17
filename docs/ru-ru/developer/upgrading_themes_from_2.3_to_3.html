@@ -12,94 +12,106 @@ permalink: ru-ru/developer/upgrading_themes_from_2.3_to_3/
 </ul>
 <p>Ниже я создал некоторый код регулярных выражений, чтобы помочь вашей PHP IDE в массовом поиске и заменить базовый синтаксис PHP синтаксисом Twig.</p>
 <hr>
-<pre><code>&lt;?php echo $var; ?&gt;</code></pre>
-<pre><code>&lt;\?php echo [$](\w*\b)[;] \?\&gt;</code></pre>
-<pre><code>{{ $1 }}</code></pre>
+<pre><code>&lt;?php echo &#36;var; ?&gt;</code></pre>
+<pre><code>&lt;\?php echo [&#36;](\w*\b)[;] \?\&gt;</code></pre>
+<pre><code>&#123;&#123; &#36;1 &#125;&#125;</code></pre>
 <hr>
-<pre><code>&lt;?php echo $var[&#039;key&#039;]; ?&gt;</code></pre>
-<pre><code>&lt;\?php echo [$](\w*\b)\[\&#039;(\w*\b)\&#039;\]; \?&gt;</code></pre>
-<pre><code>{{ $1.$2 }}</code></pre>
+<pre><code>&lt;?php echo &#36;error_name[&#36;language[&#039;language_id&#039;]]; ?&gt;</code></pre>
+<pre><code>&lt;\?php\s+echo\s+[&#36;](\w+)\[[&#36;](.*)\[\&#039;(.*)\&#039;\]\]\; \?\&gt;</code></pre>
+<pre><code>&#123;&#123; &#36;1[&#36;2.&#36;3] &#125;&#125;</code></pre>
 <hr>
-<pre><code>&lt;?php if ($error_height) { ?&gt;</code></pre>
-<pre><code>&lt;\?php if \([$](\w+\b)\) \{ \?\&gt;</code></pre>
-<pre><code>{% if $1 %}</code></pre>
+<pre><code>&lt;?php &#36;attribute_row = 0; ?&gt;</code></pre>
+<pre><code>&lt;\?php [&#36;](\w*\b) = 0[;] \?\&gt;</code></pre>
+<pre><code>&#123;&#37; set &#36;1 = 0 &#37;&#125;</code></pre>
 <hr>
-<pre><code>&lt;?php if (!$shipping) { ?&gt;</code></pre>
-<pre><code>&lt;\?php if \(\![$](\w+\b)\) \{ \?\&gt;</code></pre>
-<pre><code>{% if not $1 %}</code></pre>
+<pre><code>&lt;?php &#36;filter_row++; ?&gt;</code></pre>
+<pre><code>&lt;\?php [&#36;](\w*\b)\+\+\; \?\&gt;</code></pre>
+<pre><code>&#123;&#37; set &#36;1 = &#36;1 + 1 &#37;&#125;</code></pre>
 <hr>
-<pre><code>&lt;?php if ($voucher[&#039;order&#039;]) { ?&gt;</code></pre>
-<pre><code>&lt;\?php if \([$](\w+\b)\[\&#039;(\w+\b)\&#039;\]\) \{ \?\&gt;</code></pre>
-<pre><code>{% if $1.$2 %}</code></pre>
+<pre><code>&lt;?php echo &#36;var[&#039;key&#039;]; ?&gt;</code></pre>
+<pre><code>&lt;\?php echo [&#36;](\w*\b)\[\&#039;(\w*\b)\&#039;\]; \?&gt;</code></pre>
+<pre><code>&#123;&#123; &#36;1.&#36;2 &#125;&#125;</code></pre>
 <hr>
-<pre><code>&lt;?php if ($sort == &#039;pd.name&#039;) { ?&gt;</code></pre>
-<pre><code>&lt;\?php\s+if\s+\([$](\w+\b) == \&#039;(.*\b)\&#039;\)\s+\{\s+\?\&gt;</code></pre>
-<pre><code>{% if $1 == &#039;$2&#039; %}</code></pre>
+<pre><code>&lt;?php if (&#36;error_height) &#123; ?&gt;</code></pre>
+<pre><code>&lt;\?php if \([&#36;](\w+\b)\) \&#123; \?\&gt;</code></pre>
+<pre><code>&#123;&#37; if &#36;1 &#37;&#125;</code></pre>
 <hr>
-<pre><code>&lt;?php if ($custom_field[&#039;type&#039;] == &#039;date&#039;) { ?&gt;</code></pre>
-<pre><code>&lt;\?php if \([$](\w+\b)\[\&#039;(.*\b)\&#039;\] == \&#039;(.*\b)\&#039;\) \{ \?\&gt;</code></pre>
-<pre><code>{% if $1.$2 == &#039;$3&#039; %}</code></pre>
+<pre><code>&lt;?php if (!&#36;shipping) &#123; ?&gt;</code></pre>
+<pre><code>&lt;\?php if \(\![&#36;](\w+\b)\) \&#123; \?\&gt;</code></pre>
+<pre><code>&#123;&#37; if not &#36;1 &#37;&#125;</code></pre>
 <hr>
-<pre><code>&lt;?php if ($attribute_group[&#039;attribute_group_id&#039;] == $attribute_group_id) { ?&gt;</code></pre>
-<pre><code>&lt;\?php if \([$](\w+\b)\[\&#039;(.*\b)\&#039;\] == [$](.*\b)\) \{ \?\&gt;</code></pre>
-<pre><code>{% if $1.$2 == $3 %}</code></pre>
+<pre><code>&lt;?php if (&#36;voucher[&#039;order&#039;]) &#123; ?&gt;</code></pre>
+<pre><code>&lt;\?php if \([&#36;](\w+\b)\[\&#039;(\w+\b)\&#039;\]\) \&#123; \?\&gt;</code></pre>
+<pre><code>&#123;&#37; if &#36;1.&#36;2 &#37;&#125;</code></pre>
 <hr>
-<pre><code>&lt;?php if (in_array($marketplace_code, $marketplaces_processing)) { ?&gt;</code></pre>
-<pre><code>&lt;\?php if \(in_array\([$](\w+\b), [$](\w+\b)\)\) \{ \?\&gt;</code></pre>
-<pre><code>{% if $1 in $2 %}</code></pre>
+<pre><code>&lt;?php if (&#36;sort == &#039;pd.name&#039;) &#123; ?&gt;</code></pre>
+<pre><code>&lt;\?php\s+if\s+\([&#36;](\w+\b) == \&#039;(.*\b)\&#039;\)\s+\&#123;\s+\?\&gt;</code></pre>
+<pre><code>&#123;&#37; if &#36;1 == &#039;&#36;2&#039; &#37;&#125;</code></pre>
 <hr>
-<pre><code>&lt;?php if (in_array($category[&#039;category_id&#039;], $selected)) { ?&gt;</code></pre>
-<pre><code>&lt;\?php if \(in_array\([$](\w+\b)\[\&#039;(.*\b)\&#039;\], [$](\w+\b)\)\) \{ \?\&gt;</code></pre>
-<pre><code>{% if $3 in $1.$2 %}</code></pre>
+<pre><code>&lt;?php if (&#36;custom_field[&#039;type&#039;] == &#039;date&#039;) &#123; ?&gt;</code></pre>
+<pre><code>&lt;\?php if \([&#36;](\w+\b)\[\&#039;(.*\b)\&#039;\] == \&#039;(.*\b)\&#039;\) \&#123; \?\&gt;</code></pre>
+<pre><code>&#123;&#37; if &#36;1.&#36;2 == &#039;&#36;3&#039; &#37;&#125;</code></pre>
 <hr>
-<pre><code>&lt;?php if (isset($error_name[$language[&#039;language_id&#039;]])) { ?&gt;</code></pre>
-<pre><code>&lt;\?php\s+if\s+\(isset\([$](\w+\b)\[[$](.*\b)\[\&#039;(.*\b)\&#039;\]\]\)\) \{ \?\&gt;</code></pre>
-<pre><code>{% if $1[$2.$3] %}</code></pre>
+<pre><code>&lt;?php if (&#36;attribute_group[&#039;attribute_group_id&#039;] == &#36;attribute_group_id) &#123; ?&gt;</code></pre>
+<pre><code>&lt;\?php if \([&#36;](\w+\b)\[\&#039;(.*\b)\&#039;\] == [&#36;](.*\b)\) \&#123; \?\&gt;</code></pre>
+<pre><code>&#123;&#37; if &#36;1.&#36;2 == &#36;3 &#37;&#125;</code></pre>
 <hr>
-<pre><code>&lt;?php echo (isset($account_custom_field[$custom_field[&#039;custom_field_id&#039;]]) ? $account_custom_field[$custom_field[&#039;custom_field_id&#039;]] : $custom_field[&#039;value&#039;]); ?&gt;</code></pre>
-<pre><code>&lt;\?php\s+echo\s+\(isset\([$](\w+\b)\[[$](.*\b)\[\&#039;(.*\b)\&#039;\]\]\)\s+\?\s+[$](.*\b)\[[$](.*\b)\[\&#039;(.*\b)\&#039;\]\] : [$](.*\b)\[\&#039;(.*\b)\&#039;\]\);\s+\?\&gt;</code></pre>
-<pre><code>{% if $1[$2.$3] %} {{ $4[$5.$6] }} {% else %} {{ $7.$8 }} {% endif %}</code></pre>
+<pre><code>&lt;?php if (in_array(&#36;marketplace_code, &#36;marketplaces_processing)) &#123; ?&gt;</code></pre>
+<pre><code>&lt;\?php if \(in_array\([&#36;](\w+\b), [&#36;](\w+\b)\)\) \&#123; \?\&gt;</code></pre>
+<pre><code>&#123;&#37; if &#36;1 in &#36;2 &#37;&#125;</code></pre>
 <hr>
-<pre><code>&lt;?php echo (isset($account_custom_field[$custom_field[&#039;custom_field_id&#039;]]) ? $account_custom_field[$custom_field[&#039;custom_field_id&#039;]] : &#039;&#039;); ?&gt;</code></pre>
-<pre><code>&lt;\?php\s+echo\s+\(isset\([$](\w+\b)\[[$](.*\b)\[\&#039;(.*\b)\&#039;\]\]\)\s+\?\s+[$](.*\b)\[[$](.*\b)\[\&#039;(.*\b)\&#039;\]\] : \&#039;\&#039;\);\s+\?\&gt;</code></pre>
-<pre><code>{% if $1[$2.$3] %} {{ $4[$5.$6] }} {% endif %}</code></pre>
+<pre><code>&lt;?php if (in_array(&#36;category[&#039;category_id&#039;], &#36;selected)) &#123; ?&gt;</code></pre>
+<pre><code>&lt;\?php if \(in_array\([&#36;](\w+\b)\[\&#039;(.*\b)\&#039;\], [&#36;](\w+\b)\)\) \&#123; \?\&gt;</code></pre>
+<pre><code>&#123;&#37; if &#36;3 in &#36;1.&#36;2 &#37;&#125;</code></pre>
 <hr>
-<pre><code>&lt;?php echo isset($information_description[$language[&#039;language_id&#039;]]) ? $information_description[$language[&#039;language_id&#039;]][&#039;description&#039;] : &#039;&#039;; ?&gt;</code></pre>
-<pre><code>&lt;\?php\s+echo\s+isset\([$](\w+\b)\[[$](.*\b)\[\&#039;(.*\b)\&#039;\]\]\)\s+\?\s+[$](.*\b)\[[$](.*\b)\[\&#039;(.*\b)\&#039;\]\]\[\&#039;(.*\b)\&#039;\] : \&#039;\&#039;;\s+\?\&gt;</code></pre>
-<pre><code>{% if $1[$2.$3] %} {{ $4[$5.$6].$7 }} {% endif %}</code></pre>
+<pre><code>&lt;?php if (isset(&#36;error_name[&#36;language[&#039;language_id&#039;]])) &#123; ?&gt;</code></pre>
+<pre><code>&lt;\?php\s+if\s+\(isset\([&#36;](\w+\b)\[[&#36;](.*\b)\[\&#039;(.*\b)\&#039;\]\]\)\) \&#123; \?\&gt;</code></pre>
+<pre><code>&#123;&#37; if &#36;1[&#36;2.&#36;3] &#37;&#125;</code></pre>
 <hr>
-<pre><code>&lt;?php } elseif ($percentage) { ?&gt;</code></pre>
-<pre><code>&lt;\?php \} elseif \([$](\w+\b)\) \{ \?\&gt;</code></pre>
-<pre><code>{% elseif $1 %}</code></pre>
+<pre><code>&lt;?php echo (isset(&#36;account_custom_field[&#36;custom_field[&#039;custom_field_id&#039;]]) ? &#36;account_custom_field[&#36;custom_field[&#039;custom_field_id&#039;]] : &#36;custom_field[&#039;value&#039;]); ?&gt;</code></pre>
+<pre><code>&lt;\?php\s+echo\s+\(isset\([&#36;](\w+\b)\[[&#36;](.*\b)\[\&#039;(.*\b)\&#039;\]\]\)\s+\?\s+[&#36;](.*\b)\[[&#36;](.*\b)\[\&#039;(.*\b)\&#039;\]\] : [&#36;](.*\b)\[\&#039;(.*\b)\&#039;\]\);\s+\?\&gt;</code></pre>
+<pre><code>&#123;&#37; if &#36;1[&#36;2.&#36;3] &#37;&#125; &#123;&#123; &#36;4[&#36;5.&#36;6] &#125;&#125; &#123;&#37; else &#37;&#125; &#123;&#123; &#36;7.&#36;8 &#125;&#125; &#123;&#37; endif &#37;&#125;</code></pre>
 <hr>
-<pre><code>&lt;?php } elseif ($amazon_login_button_size == &#039;large&#039;) { ?&gt;</code></pre>
-<pre><code>&lt;\?php \} elseif \([$](\w+\b) == \&#039;(.*\b)\&#039;\) \{ \?\&gt;</code></pre>
-<pre><code>{% elseif $1 == &#039;$2&#039; %}</code></pre>
+<pre><code>&lt;?php echo (isset(&#36;account_custom_field[&#36;custom_field[&#039;custom_field_id&#039;]]) ? &#36;account_custom_field[&#36;custom_field[&#039;custom_field_id&#039;]] : &#039;&#039;); ?&gt;</code></pre>
+<pre><code>&lt;\?php\s+echo\s+\(isset\([&#36;](\w+\b)\[[&#36;](.*\b)\[\&#039;(.*\b)\&#039;\]\]\)\s+\?\s+[&#36;](.*\b)\[[&#36;](.*\b)\[\&#039;(.*\b)\&#039;\]\] : \&#039;\&#039;\);\s+\?\&gt;</code></pre>
+<pre><code>&#123;&#37; if &#36;1[&#36;2.&#36;3] &#37;&#125; &#123;&#123; &#36;4[&#36;5.&#36;6] &#125;&#125; &#123;&#37; endif &#37;&#125;</code></pre>
 <hr>
-<pre><code>&lt;?php } elseif ($percentage &lt; 0) { ?&gt;</code></pre>
-<pre><code>&lt;\?php \} elseif \([$](\w+\b) \&gt; 0\) \{ \?\&gt;</code></pre>
-<pre><code>{% elseif $1 in &lt; 0 %}</code></pre>
+<pre><code>&lt;?php echo isset(&#36;information_description[&#36;language[&#039;language_id&#039;]]) ? &#36;information_description[&#36;language[&#039;language_id&#039;]][&#039;description&#039;] : &#039;&#039;; ?&gt;</code></pre>
+<pre><code>&lt;\?php\s+echo\s+isset\([&#36;](\w+\b)\[[&#36;](.*\b)\[\&#039;(.*\b)\&#039;\]\]\)\s+\?\s+[&#36;](.*\b)\[[&#36;](.*\b)\[\&#039;(.*\b)\&#039;\]\]\[\&#039;(.*\b)\&#039;\] : \&#039;\&#039;;\s+\?\&gt;</code></pre>
+<pre><code>&#123;&#37; if &#36;1[&#36;2.&#36;3] &#37;&#125; &#123;&#123; &#36;4[&#36;5.&#36;6].&#36;7 &#125;&#125; &#123;&#37; endif &#37;&#125;</code></pre>
 <hr>
-<pre><code>&lt;?php foreach ($var1 as $var2) ?&gt;</code></pre>
-<pre><code>&lt;\?php foreach \([$](.*\b) as [$](.*\b)\) \{ \?\&gt;</code></pre>
-<pre><code>{% for $2 in $1 %}</code></pre>
+<pre><code>&lt;?php &#125; elseif (&#36;percentage) &#123; ?&gt;</code></pre>
+<pre><code>&lt;\?php \&#125; elseif \([&#36;](\w+\b)\) \&#123; \?\&gt;</code></pre>
+<pre><code>&#123;&#37; elseif &#36;1 &#37;&#125;</code></pre>
 <hr>
-<pre><code>&lt;?php foreach ($custom_field[&#039;custom_field_value&#039;] as $custom_field_value) { ?&gt;</code></pre>
-<pre><code>&lt;\?php foreach \([$](.*\b)\[\&#039;(.*\b)\&#039;\] as [$](\w+)\) \{ \?\&gt;</code></pre>
-<pre><code>{% for $3 in $1.$2 %}</code></pre>
+<pre><code>&lt;?php &#125; elseif (&#36;amazon_login_button_size == &#039;large&#039;) &#123; ?&gt;</code></pre>
+<pre><code>&lt;\?php \&#125; elseif \([&#36;](\w+\b) == \&#039;(.*\b)\&#039;\) \&#123; \?\&gt;</code></pre>
+<pre><code>&#123;&#37; elseif &#36;1 == &#039;&#36;2&#039; &#37;&#125;</code></pre>
 <hr>
-<pre><code>&lt;?php foreach ($setting[&#039;returns&#039;][&#039;paidby&#039;] as $v) { ?&gt;</code></pre>
-<pre><code>&lt;\?php foreach \([$](.*\b)\[\&#039;(.*\b)\&#039;\]\[\&#039;(.*\b)\&#039;\] as [$](\w+)\) \{ \?\&gt;</code></pre>
-<pre><code>{% for $4 in $1.$2.$3 %}</code></pre>
+<pre><code>&lt;?php &#125; elseif (&#36;percentage &lt; 0) &#123; ?&gt;</code></pre>
+<pre><code>&lt;\?php \&#125; elseif \([&#36;](\w+\b) \&gt; 0\) \&#123; \?\&gt;</code></pre>
+<pre><code>&#123;&#37; elseif &#36;1 in &lt; 0 &#37;&#125;</code></pre>
 <hr>
-<pre><code>&lt;?php foreach ($marketplaces as $id =&gt; $name) { ?&gt;</code></pre>
-<pre><code>&lt;\?php foreach \([$](\w+)\s+as\s+[$](\w+)\s+=\&gt;\s+[$](\w+)\)\s+\{ \?\&gt;</code></pre>
-<pre><code>{% for $2, $3 in $1 %}</code></pre>
+<pre><code>&lt;?php foreach (&#36;var1 as &#36;var2) ?&gt;</code></pre>
+<pre><code>&lt;\?php foreach \([&#36;](.*\b) as [&#36;](.*\b)\) \&#123; \?\&gt;</code></pre>
+<pre><code>&#123;&#37; for &#36;2 in &#36;1 &#37;&#125;</code></pre>
 <hr>
-<pre><code>&lt;?php foreach ($capture[&#039;shipping_info&#039;] as $key =&gt; $shipping_info) { ?&gt;</code></pre>
-<pre><code>&lt;\?php foreach \([$](.*)\[\&#039;(.*)\&#039;\]\s+as\s+[$](.*)\s+=\&gt;\s+[$](\w+)\)\s+\{ \?\&gt;</code></pre>
-<pre><code>{% for $3, $4 in $1.$2 %}</code></pre>
+<pre><code>&lt;?php foreach (&#36;custom_field[&#039;custom_field_value&#039;] as &#36;custom_field_value) &#123; ?&gt;</code></pre>
+<pre><code>&lt;\?php foreach \([&#36;](.*\b)\[\&#039;(.*\b)\&#039;\] as [&#36;](\w+)\) \&#123; \?\&gt;</code></pre>
+<pre><code>&#123;&#37; for &#36;3 in &#36;1.&#36;2 &#37;&#125;</code></pre>
+<hr>
+<pre><code>&lt;?php foreach (&#36;setting[&#039;returns&#039;][&#039;paidby&#039;] as &#36;v) &#123; ?&gt;</code></pre>
+<pre><code>&lt;\?php foreach \([&#36;](.*\b)\[\&#039;(.*\b)\&#039;\]\[\&#039;(.*\b)\&#039;\] as [&#36;](\w+)\) \&#123; \?\&gt;</code></pre>
+<pre><code>&#123;&#37; for &#36;4 in &#36;1.&#36;2.&#36;3 &#37;&#125;</code></pre>
+<hr>
+<pre><code>&lt;?php foreach (&#36;marketplaces as &#36;id =&gt; &#36;name) &#123; ?&gt;</code></pre>
+<pre><code>&lt;\?php foreach \([&#36;](\w+)\s+as\s+[&#36;](\w+)\s+=\&gt;\s+[&#36;](\w+)\)\s+\&#123; \?\&gt;</code></pre>
+<pre><code>&#123;&#37; for &#36;2, &#36;3 in &#36;1 &#37;&#125;</code></pre>
+<hr>
+<pre><code>&lt;?php foreach (&#36;capture[&#039;shipping_info&#039;] as &#36;key =&gt; &#36;shipping_info) &#123; ?&gt;</code></pre>
+<pre><code>&lt;\?php foreach \([&#36;](.*)\[\&#039;(.*)\&#039;\]\s+as\s+[&#36;](.*)\s+=\&gt;\s+[&#36;](\w+)\)\s+\&#123; \?\&gt;</code></pre>
+<pre><code>&#123;&#37; for &#36;3, &#36;4 in &#36;1.&#36;2 &#37;&#125;</code></pre>
 <hr>
 <p>Вам все еще нужно будет закрыть операторы if и for с приведенным ниже синтаксисом.</p>
-<pre><code>{% endif %}</code></pre>
-<pre><code>{% endfor %}</code></pre>
+<pre><code>&#123;&#37; endif &#37;&#125;</code></pre>
+<pre><code>&#123;&#37; endfor &#37;&#125;</code></pre>
