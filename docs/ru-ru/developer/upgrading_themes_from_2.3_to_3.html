@@ -16,18 +16,6 @@ permalink: ru-ru/developer/upgrading_themes_from_2.3_to_3/
 <pre><code>&lt;\?php echo [$](\w*\b)[;] \?\&gt;</code></pre>
 <pre><code>{{ $1 }}</code></pre>
 <hr>
-<pre><code>&lt;?php echo $error_name[$language[&#039;language_id&#039;]]; ?&gt;</code></pre>
-<pre><code>&lt;\?php\s+echo\s+[$](\w+)\[[$](.*)\[\&#039;(.*)\&#039;\]\]\; \?\&gt;</code></pre>
-<pre><code>{{ $1[$2.$3] }}</code></pre>
-<hr>
-<pre><code>&lt;?php $attribute_row = 0; ?&gt;</code></pre>
-<pre><code>&lt;\?php [$](\w*\b) = 0[;] \?\&gt;</code></pre>
-<pre><code>{% set $1 = 0 %}</code></pre>
-<hr>
-<pre><code>&lt;?php $filter_row++; ?&gt;</code></pre>
-<pre><code>&lt;\?php [$](\w*\b)\+\+\; \?\&gt;</code></pre>
-<pre><code>{% set $1 = $1 + 1 %}</code></pre>
-<hr>
 <pre><code>&lt;?php echo $var[&#039;key&#039;]; ?&gt;</code></pre>
 <pre><code>&lt;\?php echo [$](\w*\b)\[\&#039;(\w*\b)\&#039;\]; \?&gt;</code></pre>
 <pre><code>{{ $1.$2 }}</code></pre>
